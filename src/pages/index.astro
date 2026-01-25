@@ -1,24 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
-// 1. IMPORT YOUR IMAGES FROM SRC/ASSETS
-import weddingImg from '../assets/wedding-stationery-nairobi.jpg';
-import corporateImg from '../assets/corporate-gifts-kenya.jpg';
 ---
 
 <Layout title="Ateliér | Quiet Authority">
   <nav class="fixed w-full z-50 p-8 flex justify-between mix-blend-difference text-white">
-    <span class="text-2xl font-serif tracking-tighter">A.</span>
+    <span class="text-2xl font-serif tracking-tighter uppercase">Ateliér</span>
     <div class="space-x-8 text-[10px] tracking-[0.3em] uppercase">
       <a href="#work" class="hover:opacity-50 transition">Work</a>
-      <a href="/contact" class="hover:opacity-50 transition">Commission</a>
+      <a href="https://wa.me/2547XXXXXXXX" class="hover:opacity-50 transition">Commission</a>
     </div>
   </nav>
 
   <main>
     <section class="h-screen flex flex-col justify-center px-8 md:px-24 bg-[#F9F7F5]">
-      <h1 class="text-7xl md:text-[120px] leading-[0.9] tracking-tighter mb-8 text-[#1A1A1A]">
+      <h1 class="text-7xl md:text-[120px] leading-[0.9] tracking-tighter mb-8 text-[#1A1A1A] font-serif">
         Quiet <br/> <span class="italic text-gray-400">Authority.</span>
       </h1>
       <p class="max-w-sm text-gray-500 uppercase text-[10px] tracking-[0.2em] leading-relaxed">
@@ -28,29 +23,25 @@ import corporateImg from '../assets/corporate-gifts-kenya.jpg';
 
     <section id="work" class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4">
       <div class="md:col-span-8 bg-gray-100 min-h-[500px] overflow-hidden group relative">
-        <Image 
-          src={weddingImg} 
+        <img 
+          src="/wedding-stationery-nairobi.jpg" 
           alt="Bespoke Wedding Invitations Kenya" 
           class="object-cover w-full h-full transition duration-700 group-hover:scale-105" 
         />
         <div class="absolute bottom-6 left-6 text-white bg-black/20 p-4 backdrop-blur-sm">
-          <p class="text-xs tracking-widest uppercase">The Mauve Suite</p>
+          <p class="text-xs tracking-widest uppercase font-sans">The Mauve Suite</p>
         </div>
       </div>
 
       <div class="md:col-span-4 bg-[#1A1A1A] text-white p-12 flex flex-col justify-center">
-        <h2 class="text-3xl mb-4 italic">Executive Gifts</h2>
-        <p class="text-sm text-gray-400 leading-loose mb-8">Customized for the Kenyan corporate leader.</p>
-        <Image 
-          src={corporateImg} 
+        <h2 class="text-4xl mb-6 italic font-serif">Executive Gifts</h2>
+        <p class="text-sm text-gray-400 leading-loose mb-8 font-sans">Customized for the Kenyan corporate leader.</p>
+        <img 
+          src="/corporate-gifts-kenya.jpg" 
           alt="Executive Gifting Nairobi" 
           class="rounded-sm shadow-xl w-full h-auto" 
         />
       </div>
     </section>
   </main>
-
-  <a href="https://wa.me/2547XXXXXXXX" class="fixed bottom-10 right-10 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.522-2.961-2.638-.087-.117-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.005.332.01c.109.004.253-.041.397.303.145.346.492 1.201.535 1.288.044.087.073.188.015.303-.058.117-.087.189-.174.289-.087.101-.182.226-.26.303-.087.087-.177.182-.077.354.1.173.443.731.95 1.182.653.582 1.203.762 1.376.849.173.087.275.073.376-.041.1-.117.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z"/></svg>
-  </a>
 </Layout>

@@ -1,11 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
-// Ensure these files are physically inside src/assets/
-// and the names match exactly (lowercase, hyphens)
-import weddingImg from '../assets/wedding-stationery-nairobi.jpg';
-import corporateImg from '../assets/corporate-gifts-kenya.jpg';
 ---
 
 <Layout title="Ateliér | Quiet Authority">
@@ -13,6 +7,7 @@ import corporateImg from '../assets/corporate-gifts-kenya.jpg';
     <span class="text-2xl font-serif tracking-tighter uppercase">Ateliér</span>
     <div class="space-x-8 text-[10px] tracking-[0.3em] uppercase">
       <a href="#work" class="hover:opacity-50 transition">Work</a>
+      <a href="/journal" class="hover:opacity-50 transition">Journal</a>
       <a href="https://wa.me/2547XXXXXXXX" class="hover:opacity-50 transition">Commission</a>
     </div>
   </nav>
@@ -29,8 +24,8 @@ import corporateImg from '../assets/corporate-gifts-kenya.jpg';
 
     <section id="work" class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4">
       <div class="md:col-span-8 bg-gray-100 min-h-[500px] overflow-hidden group relative">
-        <Image 
-          src={weddingImg} 
+        <img 
+          src="/wedding-stationery-nairobi.jpg" 
           alt="Bespoke Wedding Invitations Kenya" 
           class="object-cover w-full h-full transition duration-700 group-hover:scale-105" 
         />
@@ -42,10 +37,10 @@ import corporateImg from '../assets/corporate-gifts-kenya.jpg';
       <div class="md:col-span-4 bg-[#1A1A1A] text-white p-12 flex flex-col justify-center">
         <h2 class="text-4xl mb-6 italic font-serif">Executive Gifts</h2>
         <p class="text-sm text-gray-400 leading-loose mb-8">Customized for the Kenyan corporate leader.</p>
-        <Image 
-          src={corporateImg} 
+        <img 
+          src="/corporate-gifts-kenya.jpg" 
           alt="Executive Gifting Nairobi" 
-          class="rounded-sm shadow-xl w-full h-auto" 
+          class="rounded-sm shadow-xl w-full h-auto grayscale hover:grayscale-0 transition duration-500" 
         />
       </div>
     </section>

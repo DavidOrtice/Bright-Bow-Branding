@@ -1,28 +1,47 @@
 ---
-import SEO from '../components/SEO.astro';
-const { title } = Astro.props;
+interface Props {
+	title: string;
+}
 
-// Seasonal Logic for Kenyan Market
-const month = new Date().getMonth();
-let seasonalFocus = "Bespoke Stationery & Branding";
-if (month >= 9) seasonalFocus = "Executive Corporate Gifting";
-if (month >= 5 && month <= 8) seasonalFocus = "Luxury Wedding Invitations";
+const { title } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="Ateliér Bespoke - Quiet Authority in Nairobi" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<SEO title={`${title} | ${seasonalFocus}`} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 	</head>
-	<body class="bg-[#FDFBF7] text-[#1A1A1A] antialiased">
+	<body class="bg-[#F9F7F5] font-sans antialiased text-[#1A1A1A]">
 		<slot />
 	</body>
 </html>
 
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Inter:wght@200;400&display=swap');
-	h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-	body { font-family: 'Inter', sans-serif; }
+	:root {
+		--accent: #1a1a1a;
+	}
+	
+	html {
+		font-family: 'Inter', sans-serif;
+		background: #F9F7F5;
+	}
+
+	/* Global Serif Classes for your Luxury Aesthetic */
+	h1, h2, h3, .font-serif {
+		font-family: 'Cormorant Garamond', serif;
+	}
+
+	/* Smooth transitions for links */
+	a {
+		transition: opacity 0.3s ease;
+	}
 </style>

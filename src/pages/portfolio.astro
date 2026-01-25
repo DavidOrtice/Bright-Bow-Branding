@@ -1,38 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
-// Importing your "Starting Lineup"
-import heroMauve from '../assets/hero-mauve-suite.jpg';
-import heroExecutive from '../assets/hero-executive-gifts.jpg';
-import heroVows from '../assets/hero-gold-vow-books.jpg';
-import detailSeal from '../assets/detail-wax-seal.jpg';
 ---
 
-<Layout title="The Portfolio">
-  <main class="py-24 px-6 max-w-6xl mx-auto">
-    <h1 class="text-7xl font-serif italic mb-20 text-center">Selected Works.</h1>
-    
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-      <div class="md:col-span-8 group overflow-hidden">
-        <Image src={heroMauve} alt="Bespoke Mauve Wedding Suite - Nairobi" class="w-full grayscale group-hover:grayscale-0 transition duration-700" />
-        <p class="mt-4 uppercase text-[10px] tracking-widest text-gray-400">The Mauve Wedding Suite</p>
+<Layout title="Portfolio | Ateliér Bespoke">
+  <nav class="p-8 flex justify-between items-center bg-white border-b border-gray-100">
+    <a href="/" class="text-xl font-serif tracking-tighter uppercase text-black">Ateliér</a>
+    <div class="space-x-6 text-[10px] tracking-widest uppercase">
+      <a href="/" class="text-gray-400">Home</a>
+      <a href="/journal" class="text-gray-400">Journal</a>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-6 py-24">
+    <header class="mb-20">
+      <h1 class="text-6xl font-serif italic text-[#1a1a1a]">Selected Works</h1>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="space-y-4">
+        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
+          <img src="/wedding-stationery-nairobi.jpg" alt="Wedding Suite" class="w-full h-full object-cover" />
+        </div>
+        <p class="font-serif text-2xl italic">The Mauve Wedding Suite</p>
+        <p class="text-[10px] uppercase tracking-widest text-gray-400">Event Branding</p>
       </div>
 
-      <div class="md:col-span-4 self-center">
-        <Image src={detailSeal} alt="Custom Wax Seal Branding Detail" class="w-full h-auto mb-4" />
-        <h3 class="font-serif italic text-2xl">The Tactile Mark.</h3>
-        <p class="text-xs text-gray-500 mt-2">Personalized wax seals for executive correspondence.</p>
-      </div>
-
-      <div class="md:col-span-6 mt-12">
-        <Image src={heroExecutive} alt="Executive Gifting Set - Matte Black" class="w-full h-auto shadow-2xl" />
-        <p class="mt-4 uppercase text-[10px] tracking-widest text-gray-400">Corporate Identity: The Victor Set</p>
-      </div>
-
-      <div class="md:col-span-6 mt-12">
-        <Image src={heroVows} alt="Gold Foil Vow Books Kenya" class="w-full h-auto shadow-2xl" />
-        <p class="mt-4 uppercase text-[10px] tracking-widest text-gray-400">Heirloom: Gold Foil Vows</p>
+      <div class="space-y-4">
+        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
+          <img src="/corporate-gifts-kenya.jpg" alt="Corporate Gifting" class="w-full h-full object-cover" />
+        </div>
+        <p class="font-serif text-2xl italic">Executive Identity</p>
+        <p class="text-[10px] uppercase tracking-widest text-gray-400">Corporate Gifting</p>
       </div>
     </div>
   </main>

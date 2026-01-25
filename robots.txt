@@ -1,12 +1,10 @@
-# Ateliér Bespoke - Robots configuration for 2026
+# Ateliér Bespoke - Robots configuration
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
 
-# This link tells Google where to find all your pages
-Sitemap: https://yourdomain.ke/sitemap.xml
+# Sitemap Location
+Sitemap: https://atelierbespoke.ke/sitemap.xml
 
-# Prevent low-quality AI scrapers while allowing search AI (like Gemini)
-User-agent: CCBot
+# Discourage basic AI scrapers from taking your designs
+User-agent: GPTBot
 Disallow: /

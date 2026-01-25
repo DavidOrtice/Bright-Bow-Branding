@@ -1,45 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
-// 1. Check your src/assets folder - ensure these names exist exactly!
-// If you don't have these specific images yet, use the ones we know work:
-import journalHero from '../assets/wedding-stationery-nairobi.jpg'; 
 ---
 
 <Layout title="The Journal | Ateliér Bespoke">
-	<nav class="p-8 flex justify-between items-center bg-white border-b border-gray-100">
+	<nav class="p-8 flex justify-between items-center bg-white">
 		<a href="/" class="text-xl font-serif tracking-tighter uppercase">Ateliér</a>
 		<a href="/" class="text-[10px] tracking-widest uppercase text-gray-400">Back to Home</a>
 	</nav>
 
 	<main class="max-w-4xl mx-auto px-6 py-24">
-		<header class="mb-20">
-			<span class="text-[10px] uppercase tracking-[0.4em] text-gray-400 block mb-4">Volume 01 — Issue 01</span>
+		<header class="mb-20 text-center">
+			<span class="text-[10px] uppercase tracking-[0.4em] text-gray-400 block mb-4">Volume 01</span>
 			<h1 class="text-5xl md:text-7xl font-serif italic leading-tight text-[#1a1a1a]">
-				The tactile nature of <br/> modern connection.
+				The Art of the Tangible.
 			</h1>
 		</header>
 
-		<article class="prose prose-stone">
-			<div class="aspect-[16/9] overflow-hidden mb-12">
-				<Image src={journalHero} alt="Stationery detail" class="w-full h-full object-cover grayscale" />
+		<article class="prose prose-stone mx-auto">
+			<div class="aspect-[16/9] overflow-hidden mb-12 bg-gray-100">
+				<img src="/wedding-stationery-nairobi.jpg" alt="Stationery detail" class="w-full h-full object-cover grayscale" />
 			</div>
 			
-			<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-				<div class="md:col-span-4">
-					<p class="text-[10px] uppercase tracking-widest leading-loose text-gray-400">
-						Words by <br/> <span class="text-black">The Curator</span>
-					</p>
-				</div>
-				<div class="md:col-span-8 text-lg font-light leading-relaxed text-gray-700">
-					<p class="mb-8">
-						In an era defined by the digital, the weight of a 300gsm cotton cardstock speaks louder than a thousand emails. At Ateliér, we believe in the authority of the physical.
-					</p>
-					<p class="italic font-serif text-2xl text-black border-l-2 border-black pl-8 my-12">
-						"Texture is the silent language of luxury."
-					</p>
-				</div>
+			<div class="max-w-2xl mx-auto text-lg font-light leading-relaxed text-gray-700">
+				<p class="mb-8">
+					In an era defined by the digital, the weight of a 300gsm cotton cardstock speaks louder than a thousand emails. At Ateliér, we believe in the authority of the physical.
+				</p>
 			</div>
 		</article>
 	</main>

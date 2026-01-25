@@ -1,0 +1,28 @@
+---
+import SEO from '../components/SEO.astro';
+const { title } = Astro.props;
+
+// Seasonal Logic for Kenyan Market
+const month = new Date().getMonth();
+let seasonalFocus = "Bespoke Stationery & Branding";
+if (month >= 9) seasonalFocus = "Executive Corporate Gifting";
+if (month >= 5 && month <= 8) seasonalFocus = "Luxury Wedding Invitations";
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<SEO title={`${title} | ${seasonalFocus}`} />
+	</head>
+	<body class="bg-[#FDFBF7] text-[#1A1A1A] antialiased">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Inter:wght@200;400&display=swap');
+	h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+	body { font-family: 'Inter', sans-serif; }
+</style>

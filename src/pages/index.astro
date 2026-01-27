@@ -2,47 +2,65 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Ateliér | Quiet Authority">
-  <nav class="fixed w-full z-50 p-8 flex justify-between mix-blend-difference text-white">
-    <span class="text-2xl font-serif tracking-tighter uppercase">Ateliér</span>
-    <div class="space-x-8 text-[10px] tracking-[0.3em] uppercase">
-      <a href="#work" class="hover:opacity-50 transition">Work</a>
-      <a href="/journal" class="hover:opacity-50 transition">Journal</a>
-      <a href="https://wa.me/2547XXXXXXXX" class="hover:opacity-50 transition">Commission</a>
+<Layout title="Ateliér Bespoke | Brand Identity Studio">
+  <div class="fixed inset-0 grid grid-cols-4 md:grid-cols-12 pointer-events-none z-0 opacity-[0.03]">
+    {[...Array(12)].map((_) => <div class="border-r border-black h-full" />)}
+  </div>
+
+  <nav class="fixed w-full z-50 p-6 md:p-10 flex justify-between items-center mix-blend-difference text-white">
+    <a href="/" class="text-xl font-serif tracking-widest uppercase italic">A.B.</a>
+    <div class="space-x-8 text-[9px] tracking-[0.4em] uppercase font-light">
+      <a href="#work" class="hover:opacity-50">Portfolio</a>
+      <a href="/journal" class="hover:opacity-50">Journal</a>
+      <a href="mailto:hello@atelier.com" class="bg-white text-black px-4 py-2 rounded-full mix-blend-normal">Inquire</a>
     </div>
   </nav>
 
-  <main>
-    <section class="h-screen flex flex-col justify-center px-8 md:px-24 bg-[#F9F7F5]">
-      <h1 class="text-7xl md:text-[120px] leading-[0.9] tracking-tighter mb-8 text-[#1A1A1A] font-serif">
-        Quiet <br/> <span class="italic text-gray-400">Authority.</span>
+  <main class="relative z-10">
+    <section class="h-[90vh] flex flex-col justify-center px-6 md:px-24">
+      <span class="text-[10px] uppercase tracking-[0.5em] text-gray-400 mb-6 block">Nairobi / Global</span>
+      <h1 class="text-7xl md:text-[11vw] leading-[0.85] font-serif tracking-tighter text-[#1a1a1a]">
+        The Architecture <br/> <span class="italic font-light text-gray-400">of Identity.</span>
       </h1>
-      <p class="max-w-sm text-gray-500 uppercase text-[10px] tracking-[0.2em] leading-relaxed">
-        Crafting the physical touchpoints of Nairobi’s most prestigious identities.
-      </p>
+      <div class="mt-12 md:ml-[40vw] max-w-sm">
+        <p class="text-sm text-gray-500 leading-relaxed tracking-wide">
+          We don't just design; we curate authority. Ateliér is a bespoke studio dedicated to the physical and digital artifacts of high-end branding.
+        </p>
+      </div>
     </section>
 
-    <section id="work" class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4">
-      <div class="md:col-span-8 bg-gray-100 min-h-[500px] overflow-hidden group relative">
-        <img 
-          src="/wedding-stationery-nairobi.jpg" 
-          alt="Bespoke Wedding Invitations Kenya" 
-          class="object-cover w-full h-full transition duration-700 group-hover:scale-105" 
-        />
-        <div class="absolute bottom-6 left-6 text-white bg-black/20 p-4 backdrop-blur-sm">
-          <p class="text-xs tracking-widest uppercase">The Mauve Suite</p>
+    <section id="work" class="px-6 md:px-12 py-32 space-y-40">
+      
+      <div class="relative group max-w-5xl mx-auto">
+        <div class="aspect-[16/9] overflow-hidden bg-gray-100">
+          <img src="/wedding-stationery-nairobi.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-[2s]" />
+        </div>
+        <div class="mt-8 flex justify-between items-end">
+          <div>
+            <span class="text-[9px] uppercase tracking-widest text-gray-400">01 / Print & Foil</span>
+            <h2 class="text-4xl font-serif italic mt-2">The Mauve Residence</h2>
+          </div>
+          <a href="#" class="text-[10px] uppercase tracking-widest border-b border-black pb-1">View Project</a>
         </div>
       </div>
 
-      <div class="md:col-span-4 bg-[#1A1A1A] text-white p-12 flex flex-col justify-center">
-        <h2 class="text-4xl mb-6 italic font-serif">Executive Gifts</h2>
-        <p class="text-sm text-gray-400 leading-loose mb-8">Customized for the Kenyan corporate leader.</p>
-        <img 
-          src="/corporate-gifts-kenya.jpg" 
-          alt="Executive Gifting Nairobi" 
-          class="rounded-sm shadow-xl w-full h-auto grayscale hover:grayscale-0 transition duration-500" 
-        />
+      <div class="grid grid-cols-1 md:grid-cols-12">
+        <div class="md:col-start-7 md:col-span-5 group">
+          <div class="aspect-[4/5] overflow-hidden bg-gray-100">
+            <img src="/corporate-gifts-kenya.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+          </div>
+          <div class="mt-8">
+            <span class="text-[9px] uppercase tracking-widest text-gray-400">02 / Object Design</span>
+            <h2 class="text-4xl font-serif italic mt-2">Executive Paraphernalia</h2>
+          </div>
+        </div>
       </div>
+
+    </section>
+
+    <section class="bg-[#1a1a1a] text-white py-32 px-6 text-center">
+      <h2 class="text-5xl md:text-8xl font-serif italic mb-12">Ready to define yours?</h2>
+      <a href="https://wa.me/254..." class="text-xl font-serif border-b border-white/30 pb-2 hover:border-white transition">Get in touch</a>
     </section>
   </main>
 </Layout>

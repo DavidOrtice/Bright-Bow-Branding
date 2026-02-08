@@ -1,69 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
 ---
-
-<Layout title="ATELIÉR | VIVID DESIGN & BRANDING">
-  <nav class="fixed w-full z-50 p-6 flex justify-between items-center bg-[#0047AB] text-white mix-blend-difference">
-    <span class="text-3xl font-black tracking-tighter uppercase">Ateliér.</span>
-    <div class="space-x-6 text-[11px] font-bold tracking-[0.2em] uppercase">
-      <a href="#work" class="hover:bg-white hover:text-black px-3 py-2 transition-all">Projects</a>
-      <a href="/journal" class="hover:bg-white hover:text-black px-3 py-2 transition-all">Studio</a>
-      <a href="https://wa.me/254..." class="bg-[#FF4500] px-4 py-2 rounded-full animate-pulse">Start a Project</a>
-    </div>
-  </nav>
-
-  <main class="bg-white">
-    <section class="h-screen flex flex-col justify-center bg-[#0047AB] relative overflow-hidden">
-      <div class="absolute inset-0 flex items-center opacity-10 pointer-events-none">
-        <h2 class="text-[30vw] font-black uppercase leading-none whitespace-nowrap text-white">IMPACT IMPACT IMPACT</h2>
-      </div>
-
-      <div class="relative z-10 px-6 md:px-24">
-        <h1 class="text-[15vw] md:text-[12vw] font-black leading-[0.8] tracking-[ -0.05em] text-white uppercase italic">
-          Bold <br/> <span class="text-[#FF4500] not-italic">Identity.</span>
-        </h1>
-        <p class="mt-8 max-w-xl text-xl md:text-2xl font-bold text-white/90 leading-tight">
-          We build visual weapons for brands that refuse to be ignored. Based in Nairobi, deploying globally.
-        </p>
-      </div>
-    </section>
-
-    <section id="work" class="py-24 px-4 bg-black">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <div class="group relative overflow-hidden bg-[#FF4500] aspect-square flex items-center justify-center p-12">
-          <img 
-            src="/wedding-stationery-nairobi.jpg" 
-            class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-multiply group-hover:scale-110 transition duration-700" 
-          />
-          <div class="relative z-10 text-center">
-            <h3 class="text-6xl font-black text-white uppercase leading-none mb-4">Print<br/>Rebel</h3>
-            <span class="bg-white text-black px-4 py-1 text-xs font-bold uppercase tracking-widest">View Identity</span>
-          </div>
-        </div>
-
-        <div class="group relative overflow-hidden bg-[#7DF9FF] aspect-square flex items-center justify-center p-12">
-          <img 
-            src="/corporate-gifts-kenya.jpg" 
-            class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity group-hover:opacity-100 transition duration-500" 
-          />
-          <div class="relative z-10 text-left w-full">
-            <h3 class="text-6xl font-black text-black uppercase leading-none mb-4 tracking-tighter italic">Luxe<br/>Objects</h3>
-            <span class="bg-black text-white px-4 py-1 text-xs font-bold uppercase tracking-widest">Case Study</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <footer class="bg-[#FF4500] py-20 px-6 text-black">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-        <h2 class="text-[10vw] font-black leading-none uppercase tracking-tighter">Let's <br/> Create.</h2>
-        <div class="flex flex-col gap-4">
-          <p class="text-2xl font-bold">Nairobi, Kenya</p>
-          <p class="text-xl">© 2026 ATELIÉR. ALL GAS, NO BRAKES.</p>
-        </div>
-      </div>
-    </footer>
-  </main>
-</Layout>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-white font-sans antialiased text-slate-900 m-0 p-0">
+		<slot />
+	</body>
+</html>

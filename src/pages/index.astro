@@ -2,93 +2,90 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Ateliér | Corporate Brand Identity">
-  <div class="bg-[#002B6B] text-white text-[10px] py-2 px-6 md:px-24 flex justify-between uppercase tracking-widest font-semibold">
-    <span>Nairobi • London • Global</span>
-    <div class="space-x-4">
-      <a href="#" class="hover:underline opacity-80">Network Status</a>
-      <a href="#" class="hover:underline opacity-80">Support</a>
-    </div>
-  </div>
-
-  <nav class="sticky top-0 w-full z-50 bg-white border-b border-gray-200 px-6 md:px-24 py-4 flex justify-between items-center shadow-sm">
+<Layout title="Bright Bow Branding | Design & Printing">
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 px-6 md:px-24 py-4 flex justify-between items-center">
     <div class="flex items-center space-x-3">
-      <div class="w-9 h-9 bg-[#0047AB] rounded-sm flex items-center justify-center">
-        <span class="text-white font-extrabold text-xl">A</span>
-      </div>
-      <span class="text-2xl font-extrabold tracking-tighter text-[#002B6B] uppercase">Ateliér</span>
+      <div class="w-10 h-10 flex">
+        <div class="w-1/2 h-full bg-[#0047AB]"></div> <div class="w-1/2 h-full bg-[#FF4500]"></div> </div>
+      <span class="text-xl font-black tracking-tighter text-[#1A1A1A] uppercase">Bright Bow</span>
     </div>
     
-    <div class="hidden md:flex space-x-10 text-[13px] font-bold text-gray-600 uppercase tracking-tight">
-      <a href="#solutions" class="hover:text-[#0047AB] transition">Solutions</a>
-      <a href="#portfolio" class="hover:text-[#0047AB] transition">Portfolio</a>
-      <a href="/journal" class="hover:text-[#0047AB] transition">Insights</a>
-      <a href="https://wa.me/254..." class="bg-[#0047AB] text-white px-6 py-2 rounded-sm hover:bg-[#002B6B] transition shadow-md">Get a Quote</a>
+    <div class="hidden md:flex space-x-8 text-[11px] font-black uppercase tracking-widest text-gray-500">
+      <a href="#services" class="hover:text-[#0047AB] transition">Services</a>
+      <a href="#work" class="hover:text-[#0047AB] transition">Portfolio</a>
+      <a href="#about" class="hover:text-[#0047AB] transition">Studio</a>
+      <a href="#contact" class="bg-[#0047AB] text-white px-5 py-2 rounded-sm shadow-lg shadow-blue-200">Start Project</a>
     </div>
   </nav>
 
   <main>
-    <section class="relative bg-gradient-to-br from-white to-gray-50 py-24 md:py-40 px-6 md:px-24 border-b border-gray-100">
-      <div class="max-w-4xl space-y-8">
-        <h1 class="text-5xl md:text-[80px] font-extrabold text-[#002B6B] leading-[0.95] tracking-tight">
-          Modern Brand <br/> <span class="text-[#0047AB]">Infrastructure.</span>
-        </h1>
-        <p class="text-xl text-gray-600 max-w-2xl leading-relaxed">
-          Ateliér architects high-trust visual identities for the world's most demanding service providers and institutions.
-        </p>
-        <div class="flex flex-wrap gap-4 pt-4">
-          <a href="#solutions" class="bg-[#0047AB] text-white px-10 py-5 font-bold rounded-sm shadow-xl shadow-blue-200 hover:translate-y-[-2px] transition-all">Our Solutions</a>
-          <a href="#portfolio" class="border-2 border-gray-200 text-gray-600 px-10 py-5 font-bold rounded-sm hover:bg-gray-50 transition-all">View Case Studies</a>
+    <section id="home" class="pt-48 pb-24 px-6 md:px-24 bg-white text-center md:text-left">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-6xl md:text-[100px] font-black leading-[0.85] tracking-tighter text-[#1A1A1A] uppercase mb-8">
+            Vivid <br/> <span class="text-[#0047AB]">Printing.</span> <br/> <span class="text-[#FF4500]">Branding.</span>
+          </h1>
+          <p class="text-xl font-bold text-gray-500 max-w-lg mb-10 uppercase tracking-tight">
+            We bring color to your business identity. Based in Nairobi, serving visionaries.
+          </p>
+          <a href="#services" class="inline-block border-4 border-[#1A1A1A] px-10 py-4 font-black uppercase tracking-widest hover:bg-[#1A1A1A] hover:text-white transition">Explore Our Work</a>
+        </div>
+        <div class="grid grid-cols-2 gap-2 max-w-md mx-auto md:mx-0">
+          <div class="aspect-square bg-[#0047AB] rounded-tl-[100px]"></div>
+          <div class="aspect-square bg-[#FF4500]"></div>
+          <div class="aspect-square bg-[#FFD700]"></div>
+          <div class="aspect-square bg-[#E11D48] rounded-br-[100px]"></div>
         </div>
       </div>
     </section>
 
-    <section id="solutions" class="py-24 px-6 md:px-24 bg-white">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="group border-l-4 border-[#0047AB] pl-8 py-4 space-y-4">
-          <h3 class="text-2xl font-bold text-[#002B6B]">Strategic Identity</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Scalable design systems built for international deployment and absolute consistency across digital ecosystems.
-          </p>
-          <a href="#" class="inline-block text-[#0047AB] text-xs font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Explore Solution →</a>
+    <section id="services" class="py-32 px-6 md:px-24 bg-gray-50 scroll-mt-20">
+      <h2 class="text-xs font-black uppercase tracking-[0.5em] text-[#0047AB] mb-16">Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-[#0047AB] p-8 text-white">
+          <h3 class="text-2xl font-black uppercase mb-4">Branding</h3>
+          <p class="text-sm opacity-80">Full visual identity systems that demand attention.</p>
         </div>
-        <div class="group border-l-4 border-gray-200 pl-8 py-4 space-y-4 hover:border-[#0047AB] transition-colors">
-          <h3 class="text-2xl font-bold text-[#002B6B]">Executive Assets</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            High-precision physical touchpoints, bespoke stationery, and architectural gifting for elite corporate tiers.
-          </p>
-          <a href="#" class="inline-block text-[#0047AB] text-xs font-bold uppercase tracking-widest">Explore Solution →</a>
+        <div class="bg-[#FF4500] p-8 text-white">
+          <h3 class="text-2xl font-black uppercase mb-4">Printing</h3>
+          <p class="text-sm opacity-80">High-fidelity print solutions for executive stationery.</p>
         </div>
-        <div class="group border-l-4 border-gray-200 pl-8 py-4 space-y-4 hover:border-[#0047AB] transition-colors">
-          <h3 class="text-2xl font-bold text-[#002B6B]">Visual Auditing</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Data-driven testing and auditing of brand touchpoints to ensure maximum market authority and UX clarity.
-          </p>
-          <a href="#" class="inline-block text-[#0047AB] text-xs font-bold uppercase tracking-widest">Explore Solution →</a>
+        <div class="bg-[#FFD700] p-8 text-black">
+          <h3 class="text-2xl font-black uppercase mb-4">Design</h3>
+          <h3 class="text-2xl font-black uppercase mb-4">Design</h3>
+          <p class="text-sm opacity-80">Strategic creative direction for modern enterprises.</p>
+        </div>
+        <div class="bg-[#E11D48] p-8 text-white">
+          <h3 class="text-2xl font-black uppercase mb-4">Objects</h3>
+          <p class="text-sm opacity-80">Bespoke corporate gifting and custom merchandise.</p>
         </div>
       </div>
+    </section>
+
+    <section id="work" class="py-32 px-6 md:px-24 bg-white scroll-mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          <div class="aspect-video bg-gray-100 overflow-hidden border-8 border-gray-100">
+            <img src="/wedding-stationery-nairobi.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500" />
+          </div>
+          <h4 class="text-3xl font-black uppercase tracking-tighter">Event Branding</h4>
+        </div>
+        <div class="space-y-6 md:mt-24">
+          <div class="aspect-video bg-gray-100 overflow-hidden border-8 border-gray-100">
+            <img src="/corporate-gifts-kenya.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500" />
+          </div>
+          <h4 class="text-3xl font-black uppercase tracking-tighter">Corporate Gifting</h4>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-32 px-6 md:px-24 bg-[#1A1A1A] text-white scroll-mt-20 text-center">
+      <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-12">Ready to <br/> go <span class="text-[#FF4500]">Bright?</span></h2>
+      <a href="https://wa.me/254..." class="inline-block bg-[#0047AB] px-12 py-6 text-xl font-black uppercase tracking-widest shadow-2xl shadow-blue-500/20">Talk to us</a>
     </section>
   </main>
 
-  <footer class="bg-[#001A41] text-white py-20 px-6 md:px-24 mt-20">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-sm opacity-80">
-      <div class="col-span-2">
-        <span class="text-2xl font-black tracking-tighter uppercase mb-6 block">Ateliér.</span>
-        <p class="max-w-xs leading-loose">Specialized branding solutions for complex enterprise environments across Nairobi and beyond.</p>
-      </div>
-      <div>
-        <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Solutions</h4>
-        <ul class="space-y-4">
-          <li>Identity Guard</li>
-          <li>System Design</li>
-          <li>Corporate Assets</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Contact</h4>
-        <p>Nairobi HQ — Level 10</p>
-        <p>WhatsApp: +254...</p>
-      </div>
-    </div>
+  <footer class="p-12 text-center text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">
+    © 2026 Bright Bow Branding & Printing. All Gas, No Brakes.
   </footer>
 </Layout>

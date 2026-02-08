@@ -1,72 +1,44 @@
 ---
-import Layout from '../layouts/Layout.astro';
+/* NO IMPORTS - Testing if basic HTML renders */
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bright Bow Branding</title>
+</head>
+<body style="margin:0; padding:0; background-color: white; font-family: sans-serif;">
 
-<Layout title="Bright Bow Branding | Design & Printing">
-  <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100 px-6 md:px-24 py-4 flex justify-between items-center">
-    <div class="flex items-center space-x-3">
-      <div class="w-10 h-10 flex flex-wrap">
-        <div style="background-color: #0047AB;" class="w-1/2 h-1/2"></div> <div style="background-color: #FF4500;" class="w-1/2 h-1/2"></div> <div style="background-color: #FFD700;" class="w-1/2 h-1/2"></div> <div style="background-color: #E11D48;" class="w-1/2 h-1/2"></div> </div>
-      <span class="text-2xl font-black tracking-tighter text-black uppercase">Bright Bow</span>
-    </div>
-    
-    <div class="hidden md:flex space-x-8 text-[11px] font-black uppercase tracking-widest text-gray-500">
-      <a href="#services" class="hover:text-[#0047AB]">Services</a>
-      <a href="#work" class="hover:text-[#0047AB]">Portfolio</a>
-      <a href="#contact" style="background-color: #0047AB;" class="text-white px-6 py-2 rounded-sm shadow-lg">Start Project</a>
-    </div>
-  </nav>
-
-  <main>
-    <section class="pt-48 pb-24 px-6 md:px-24 bg-white">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div>
-          <h1 class="text-6xl md:text-[100px] font-black leading-[0.85] tracking-tighter text-black uppercase mb-8">
-            Vivid <br/> 
-            <span style="color: #0047AB;">Printing.</span> <br/> 
-            <span style="color: #FF4500;">Branding.</span>
-          </h1>
-          <p class="text-xl font-bold text-gray-400 max-w-lg mb-10 uppercase tracking-tight">
-            Branding & Printing.
-          </p>
-          <div class="flex gap-4">
-            <a href="#services" style="background-color: #1A1A1A;" class="text-white px-10 py-5 font-black uppercase tracking-widest hover:opacity-90 transition">Our Services</a>
-          </div>
-        </div>
+    <div style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
         
-        <div class="grid grid-cols-2 gap-3 max-w-md mx-auto md:mx-0">
-          <div style="background-color: #0047AB;" class="aspect-square rounded-tl-[100px] shadow-2xl shadow-blue-200"></div>
-          <div style="background-color: #FF4500;" class="aspect-square shadow-2xl shadow-orange-200"></div>
-          <div style="background-color: #FFD700;" class="aspect-square shadow-2xl shadow-yellow-100"></div>
-          <div style="background-color: #E11D48;" class="aspect-square rounded-br-[100px] shadow-2xl shadow-rose-200"></div>
+        <div style="display: grid; grid-template-columns: 80px 80px; gap: 5px; margin-bottom: 30px;">
+            <div style="width: 80px; height: 80px; background-color: #0047AB; border-top-left-radius: 40px;"></div>
+            <div style="width: 80px; height: 80px; background-color: #FF4500;"></div>
+            <div style="width: 80px; height: 80px; background-color: #FFD700;"></div>
+            <div style="width: 80px; height: 80px; background-color: #E11D48; border-bottom-right-radius: 40px;"></div>
         </div>
-      </div>
-    </section>
 
-    <section id="services" class="py-24 px-6 md:px-24 bg-gray-50">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-white font-black uppercase">
-        <div style="background-color: #0047AB;" class="p-12 h-80 flex flex-col justify-end group hover:-translate-y-2 transition-transform">
-          <h3 class="text-3xl">Visual<br/>Identity</h3>
-        </div>
-        <div style="background-color: #FF4500;" class="p-12 h-80 flex flex-col justify-end group hover:-translate-y-2 transition-transform">
-          <h3 class="text-3xl">Premium<br/>Printing</h3>
-        </div>
-        <div style="background-color: #FFD700;" class="p-12 h-80 flex flex-col justify-end text-black group hover:-translate-y-2 transition-transform">
-          <h3 class="text-3xl">Creative<br/>Design</h3>
-        </div>
-        <div style="background-color: #E11D48;" class="p-12 h-80 flex flex-col justify-end group hover:-translate-y-2 transition-transform">
-          <h3 class="text-3xl">Bespoke<br/>Objects</h3>
-        </div>
-      </div>
-    </section>
+        <h1 style="font-size: 60px; font-weight: 900; margin: 0; color: #1A1A1A; line-height: 1;">
+            BRIGHT <br> <span style="color: #0047AB;">BOW</span>
+        </h1>
+        
+        <p style="letter-spacing: 10px; font-weight: bold; color: #888; margin-top: 20px;">
+            BRANDING & PRINTING
+        </p>
 
-    <section id="contact" style="background-color: #FF4500;" class="py-32 px-6 md:px-24 text-center">
-      <h2 class="text-5xl md:text-9xl font-black uppercase tracking-tighter mb-12 text-white leading-none">Ready to <br/> go Bright?</h2>
-      <a href="https://wa.me/254..." class="inline-block bg-white text-black px-12 py-6 text-xl font-black uppercase tracking-widest hover:scale-110 transition-transform">Start a Conversation</a>
-    </section>
-  </main>
+        <div style="margin-top: 40px;">
+            <a href="https://wa.me/254..." style="background-color: #FF4500; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; text-transform: uppercase;">
+                Contact Us
+            </a>
+        </div>
+    </div>
 
-  <footer class="p-12 text-center text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">
-    © 2026 Bright Bow Branding & Printing.
-  </footer>
-</Layout>
+    <div style="display: flex; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 200px; height: 200px; background-color: #0047AB; color: white; padding: 20px; font-weight: bold;">IDENTITY</div>
+        <div style="flex: 1; min-width: 200px; height: 200px; background-color: #FF4500; color: white; padding: 20px; font-weight: bold;">PRINTING</div>
+        <div style="flex: 1; min-width: 200px; height: 200px; background-color: #FFD700; color: black; padding: 20px; font-weight: bold;">DESIGN</div>
+        <div style="flex: 1; min-width: 200px; height: 200px; background-color: #E11D48; color: white; padding: 20px; font-weight: bold;">GIFTS</div>
+    </div>
+
+</body>
+</html>

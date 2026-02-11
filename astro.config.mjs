@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://atelierbespoke.ke', // Replace with your domain
+  site: 'https://brightbow.co.ke',
   integrations: [tailwind(), sitemap()],
   output: 'static',
 });

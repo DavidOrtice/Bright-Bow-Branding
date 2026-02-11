@@ -1,459 +1,927 @@
 ---
-import Layout from './layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Bright Bow | Premium Branding & Printing">
-	<!-- Navigation -->
-	<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-		<div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-			<a href="/" class="flex items-center gap-3 group">
-				<div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg rounded-tr-none transition-transform group-hover:scale-105"></div>
-				<span class="text-2xl font-bold tracking-tight text-gray-900">BRIGHT BOW</span>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+		
+		:root {
+			--primary-blue: #0047AB;
+			--accent-orange: #FF4500;
+			--accent-pink: #E11D48;
+			--accent-gold: #FFD700;
+			--dark: #0a0a0a;
+			--gray: #6b7280;
+			--light-gray: #f3f4f6;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Archivo', sans-serif;
+			background: #ffffff;
+			color: var(--dark);
+			overflow-x: hidden;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		.nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1000;
+			background: rgba(255, 255, 255, 0.85);
+			backdrop-filter: blur(20px);
+			border-bottom: 1px solid rgba(0, 71, 171, 0.1);
+			animation: slideDown 0.6s ease-out;
+		}
+
+		@keyframes slideDown {
+			from {
+				transform: translateY(-100%);
+				opacity: 0;
+			}
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+
+		.nav-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 1.5rem 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.logo {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			text-decoration: none;
+			color: var(--dark);
+		}
+
+		.logo-mark {
+			width: 36px;
+			height: 36px;
+			background: var(--primary-blue);
+			border-radius: 8px 0 8px 8px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.logo-mark::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 12px;
+			height: 12px;
+			background: white;
+			border-radius: 50%;
+		}
+
+		.logo-text {
+			font-weight: 900;
+			font-size: 1.5rem;
+			letter-spacing: -0.5px;
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 2.5rem;
+			align-items: center;
+		}
+
+		.nav-link {
+			text-decoration: none;
+			color: var(--gray);
+			font-size: 0.875rem;
+			font-weight: 600;
+			letter-spacing: 0.5px;
+			text-transform: uppercase;
+			transition: color 0.3s ease;
+		}
+
+		.nav-link:hover {
+			color: var(--primary-blue);
+		}
+
+		.cta-button {
+			background: var(--accent-orange);
+			color: white;
+			padding: 0.875rem 1.75rem;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 0.875rem;
+			letter-spacing: 0.5px;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 14px rgba(255, 69, 0, 0.3);
+		}
+
+		.cta-button:hover {
+			background: #ff3300;
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4);
+		}
+
+		.hero {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			padding: 8rem 2rem 4rem;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.hero-background {
+			position: absolute;
+			top: 0;
+			right: -15%;
+			width: 70%;
+			height: 100%;
+			background: linear-gradient(135deg, rgba(0, 71, 171, 0.03) 0%, rgba(255, 215, 0, 0.05) 100%);
+			border-radius: 300px 0 300px 300px;
+			z-index: 0;
+			animation: float 20s ease-in-out infinite;
+		}
+
+		@keyframes float {
+			0%, 100% {
+				transform: translateY(0) rotate(0deg);
+			}
+			50% {
+				transform: translateY(-30px) rotate(2deg);
+			}
+		}
+
+		.hero-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			position: relative;
+			z-index: 2;
+			display: grid;
+			grid-template-columns: 1.2fr 1fr;
+			gap: 4rem;
+			align-items: center;
+		}
+
+		.hero-content {
+			animation: fadeInUp 0.8s ease-out 0.2s both;
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.hero-title {
+			font-size: clamp(3rem, 7vw, 6.5rem);
+			font-weight: 900;
+			line-height: 0.95;
+			letter-spacing: -3px;
+			margin-bottom: 1.5rem;
+		}
+
+		.hero-title .highlight {
+			color: var(--primary-blue);
+			position: relative;
+			display: inline-block;
+		}
+
+		.hero-subtitle {
+			font-family: 'Crimson Pro', serif;
+			font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+			color: var(--gray);
+			line-height: 1.6;
+			max-width: 600px;
+			margin-bottom: 3rem;
+			font-style: italic;
+		}
+
+		.hero-shapes {
+			display: flex;
+			gap: 1.25rem;
+			animation: fadeInUp 0.8s ease-out 0.4s both;
+		}
+
+		.shape {
+			width: 80px;
+			height: 80px;
+			transition: transform 0.4s ease;
+		}
+
+		.shape:hover {
+			transform: scale(1.1) rotate(5deg);
+		}
+
+		.shape-1 {
+			background: var(--accent-gold);
+			border-radius: 50%;
+		}
+
+		.shape-2 {
+			background: var(--accent-pink);
+			border-radius: 0 40px 40px 40px;
+		}
+
+		.shape-3 {
+			background: var(--accent-orange);
+			border-radius: 40px 40px 0 40px;
+		}
+
+		.hero-visual {
+			position: relative;
+			animation: fadeInUp 0.8s ease-out 0.6s both;
+		}
+
+		.visual-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+
+		.visual-card {
+			aspect-ratio: 1;
+			background: var(--light-gray);
+			border-radius: 24px;
+			overflow: hidden;
+			position: relative;
+			transition: transform 0.4s ease;
+		}
+
+		.visual-card:hover {
+			transform: translateY(-8px);
+		}
+
+		.visual-card::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(135deg, rgba(0, 71, 171, 0.1), transparent);
+			z-index: 1;
+		}
+
+		.visual-card img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.services {
+			padding: 8rem 2rem;
+			background: var(--dark);
+			color: white;
+			position: relative;
+		}
+
+		.services::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+		}
+
+		.services-container {
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+
+		.section-label {
+			font-size: 0.875rem;
+			font-weight: 700;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			color: var(--accent-orange);
+			margin-bottom: 1rem;
+			opacity: 0;
+			animation: fadeInUp 0.8s ease-out forwards;
+		}
+
+		.section-title {
+			font-size: clamp(2.5rem, 5vw, 4rem);
+			font-weight: 900;
+			letter-spacing: -2px;
+			margin-bottom: 5rem;
+			opacity: 0;
+			animation: fadeInUp 0.8s ease-out 0.1s forwards;
+		}
+
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 3rem;
+		}
+
+		.service-card {
+			border-left: 3px solid;
+			padding-left: 2rem;
+			transition: all 0.4s ease;
+			opacity: 0;
+			animation: fadeInUp 0.8s ease-out forwards;
+		}
+
+		.service-card:nth-child(1) {
+			border-color: var(--primary-blue);
+			animation-delay: 0.2s;
+		}
+
+		.service-card:nth-child(2) {
+			border-color: var(--accent-orange);
+			animation-delay: 0.3s;
+		}
+
+		.service-card:nth-child(3) {
+			border-color: var(--accent-pink);
+			animation-delay: 0.4s;
+		}
+
+		.service-card:hover {
+			transform: translateX(10px);
+		}
+
+		.service-number {
+			font-size: 3.5rem;
+			font-weight: 900;
+			line-height: 1;
+			margin-bottom: 1rem;
+			opacity: 0.3;
+		}
+
+		.service-card:nth-child(1) .service-number {
+			color: var(--primary-blue);
+		}
+
+		.service-card:nth-child(2) .service-number {
+			color: var(--accent-orange);
+		}
+
+		.service-card:nth-child(3) .service-number {
+			color: var(--accent-pink);
+		}
+
+		.service-title {
+			font-size: 2rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+		}
+
+		.service-description {
+			color: #9ca3af;
+			line-height: 1.7;
+			font-size: 1.05rem;
+		}
+
+		.service-features {
+			list-style: none;
+			margin-top: 1.5rem;
+		}
+
+		.service-features li {
+			padding: 0.5rem 0;
+			color: #d1d5db;
+			position: relative;
+			padding-left: 1.5rem;
+		}
+
+		.service-features li::before {
+			content: '→';
+			position: absolute;
+			left: 0;
+			opacity: 0.5;
+		}
+
+		.portfolio {
+			padding: 8rem 2rem;
+			background: white;
+		}
+
+		.portfolio-container {
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+
+		.portfolio-header {
+			text-align: center;
+			margin-bottom: 5rem;
+		}
+
+		.portfolio-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+			gap: 2rem;
+		}
+
+		.portfolio-item {
+			position: relative;
+			aspect-ratio: 4/5;
+			background: var(--light-gray);
+			border-radius: 16px;
+			overflow: hidden;
+			cursor: pointer;
+			transition: transform 0.4s ease;
+		}
+
+		.portfolio-item:hover {
+			transform: scale(1.02);
+		}
+
+		.portfolio-item img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.4s ease;
+		}
+
+		.portfolio-item:hover img {
+			transform: scale(1.05);
+		}
+
+		.portfolio-overlay {
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding: 2rem;
+			opacity: 0;
+			transition: opacity 0.4s ease;
+		}
+
+		.portfolio-item:hover .portfolio-overlay {
+			opacity: 1;
+		}
+
+		.portfolio-title {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: white;
+			margin-bottom: 0.5rem;
+		}
+
+		.portfolio-category {
+			font-size: 0.75rem;
+			font-weight: 600;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: var(--accent-gold);
+		}
+
+		.process {
+			padding: 8rem 2rem;
+			background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+		}
+
+		.process-container {
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.process-steps {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 3rem;
+			margin-top: 4rem;
+		}
+
+		.process-step {
+			text-align: center;
+			position: relative;
+		}
+
+		.step-icon {
+			width: 100px;
+			height: 100px;
+			margin: 0 auto 2rem;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.5rem;
+			font-weight: 900;
+			color: white;
+			position: relative;
+		}
+
+		.process-step:nth-child(1) .step-icon {
+			background: linear-gradient(135deg, var(--primary-blue), #0056d6);
+		}
+
+		.process-step:nth-child(2) .step-icon {
+			background: linear-gradient(135deg, var(--accent-orange), #ff6633);
+		}
+
+		.process-step:nth-child(3) .step-icon {
+			background: linear-gradient(135deg, var(--accent-pink), #f43f5e);
+		}
+
+		.process-step:nth-child(4) .step-icon {
+			background: linear-gradient(135deg, var(--accent-gold), #ffd700);
+			color: var(--dark);
+		}
+
+		.step-title {
+			font-size: 1.25rem;
+			font-weight: 700;
+			margin-bottom: 0.75rem;
+		}
+
+		.step-description {
+			color: var(--gray);
+			line-height: 1.6;
+		}
+
+		.contact {
+			padding: 8rem 2rem;
+			background: var(--dark);
+			color: white;
+			text-align: center;
+		}
+
+		.contact-container {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.contact-title {
+			font-size: clamp(2.5rem, 5vw, 4.5rem);
+			font-weight: 900;
+			letter-spacing: -2px;
+			margin-bottom: 2rem;
+		}
+
+		.contact-subtitle {
+			font-family: 'Crimson Pro', serif;
+			font-size: 1.5rem;
+			color: #9ca3af;
+			margin-bottom: 3rem;
+			font-style: italic;
+		}
+
+		.contact-buttons {
+			display: flex;
+			gap: 1.5rem;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.contact-button {
+			padding: 1.25rem 2.5rem;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 1rem;
+			letter-spacing: 0.5px;
+			transition: all 0.3s ease;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.75rem;
+		}
+
+		.contact-button.primary {
+			background: var(--accent-orange);
+			color: white;
+			box-shadow: 0 4px 14px rgba(255, 69, 0, 0.3);
+		}
+
+		.contact-button.primary:hover {
+			background: #ff3300;
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4);
+		}
+
+		.contact-button.secondary {
+			background: transparent;
+			color: white;
+			border: 2px solid rgba(255, 255, 255, 0.2);
+		}
+
+		.contact-button.secondary:hover {
+			background: rgba(255, 255, 255, 0.1);
+			border-color: rgba(255, 255, 255, 0.4);
+		}
+
+		.footer {
+			padding: 3rem 2rem;
+			background: #000000;
+			color: #6b7280;
+			text-align: center;
+			border-top: 1px solid rgba(255, 255, 255, 0.05);
+		}
+
+		.footer-content {
+			max-width: 1400px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 2rem;
+		}
+
+		.footer-logo {
+			font-weight: 900;
+			font-size: 1.25rem;
+			color: white;
+		}
+
+		.footer-links {
+			display: flex;
+			gap: 2rem;
+		}
+
+		.footer-link {
+			color: #9ca3af;
+			text-decoration: none;
+			font-size: 0.875rem;
+			transition: color 0.3s ease;
+		}
+
+		.footer-link:hover {
+			color: var(--accent-orange);
+		}
+
+		.footer-copy {
+			font-size: 0.875rem;
+		}
+
+		@media (max-width: 968px) {
+			.hero-container {
+				grid-template-columns: 1fr;
+			}
+
+			.nav-links {
+				gap: 1.5rem;
+			}
+
+			.nav-link {
+				display: none;
+			}
+
+			.portfolio-grid {
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			}
+
+			.footer-content {
+				flex-direction: column;
+				text-align: center;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.hero-shapes {
+				gap: 0.75rem;
+			}
+
+			.shape {
+				width: 60px;
+				height: 60px;
+			}
+
+			.contact-buttons {
+				flex-direction: column;
+			}
+
+			.contact-button {
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	</style>
+
+	<nav class="nav">
+		<div class="nav-container">
+			<a href="#" class="logo">
+				<div class="logo-mark"></div>
+				<span class="logo-text">BRIGHT BOW</span>
 			</a>
-			<div class="hidden md:flex items-center gap-8">
-				<a href="#services" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Services</a>
-				<a href="#portfolio" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Portfolio</a>
-				<a href="#about" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">About</a>
-				<a href="https://wa.me/254748448431" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:shadow-orange-500/30">
-					Get In Touch
-				</a>
+			<div class="nav-links">
+				<a href="#services" class="nav-link">Services</a>
+				<a href="#portfolio" class="nav-link">Portfolio</a>
+				<a href="#process" class="nav-link">Process</a>
+				<a href="#contact" class="cta-button">Get Started</a>
 			</div>
 		</div>
 	</nav>
 
-	<!-- Hero Section -->
-	<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-white to-blue-50/30">
-		<div class="absolute inset-0 overflow-hidden">
-			<div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
-			<div class="absolute -bottom-40 -left-40 w-96 h-96 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
-			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
-		</div>
-		
-		<div class="max-w-7xl mx-auto px-6 pt-32 pb-20 relative z-10">
-			<div class="max-w-4xl">
-				<div class="inline-block mb-6">
-					<span class="text-xs font-bold tracking-widest uppercase text-blue-600 bg-blue-50 px-4 py-2 rounded-full">
-						Est. 2020 • Nairobi, Kenya
-					</span>
-				</div>
-				<h1 class="text-7xl md:text-8xl lg:text-9xl font-black leading-none mb-8 tracking-tight">
-					<span class="text-gray-900 block">Vivid Identity.</span>
-					<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Precision Print.</span>
+	<section class="hero">
+		<div class="hero-background"></div>
+		<div class="hero-container">
+			<div class="hero-content">
+				<h1 class="hero-title">
+					Vivid Identity.<br>
+					<span class="highlight">Precision</span> Print.
 				</h1>
-				<p class="text-xl md:text-2xl text-gray-600 max-w-2xl leading-relaxed mb-12 font-light">
-					We transform businesses into unforgettable brands. From strategy to execution, 
-					we craft visual identities that command attention and inspire trust.
+				<p class="hero-subtitle">
+					Transforming business infrastructure into visual landmarks. From Nairobi to the world, we craft brands that command attention and inspire confidence.
 				</p>
-				<div class="flex flex-wrap gap-4 mb-16">
-					<a href="#portfolio" class="bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition-all hover:shadow-xl hover:shadow-gray-900/20 flex items-center gap-2">
-						View Our Work
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-						</svg>
-					</a>
-					<a href="#services" class="border-2 border-gray-900 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-900 hover:text-white transition-all">
-						Our Services
-					</a>
-				</div>
-				
-				<!-- Brand Marks -->
-				<div class="flex gap-4">
-					<div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full animate-float"></div>
-					<div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-tl-full rounded-br-full animate-float animation-delay-1000"></div>
-					<div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-tr-full rounded-bl-full animate-float animation-delay-2000"></div>
+				<div class="hero-shapes">
+					<div class="shape shape-1"></div>
+					<div class="shape shape-2"></div>
+					<div class="shape shape-3"></div>
 				</div>
 			</div>
-		</div>
-
-		<!-- Scroll Indicator -->
-		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-			<svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-			</svg>
-		</div>
-	</section>
-
-	<!-- Services Section -->
-	<section id="services" class="py-32 bg-gray-900 relative overflow-hidden">
-		<div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-blue-900/20"></div>
-		
-		<div class="max-w-7xl mx-auto px-6 relative z-10">
-			<div class="text-center mb-20">
-				<span class="text-xs font-bold tracking-widest uppercase text-blue-400 mb-4 block">What We Do</span>
-				<h2 class="text-5xl md:text-6xl font-black text-white mb-6">Our Services</h2>
-				<p class="text-xl text-gray-400 max-w-2xl mx-auto">
-					Comprehensive branding solutions that elevate your business presence
-				</p>
-			</div>
-
-			<div class="grid md:grid-cols-3 gap-8">
-				<!-- Service 1: Branding -->
-				<div class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-3xl border border-gray-700 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 overflow-hidden">
-					<div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-700"></div>
-					<div class="absolute top-0 right-0 w-20 h-20 bg-blue-500/10 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500"></div>
-					
-					<div class="relative z-10">
-						<div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mb-6 flex items-center justify-center">
-							<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-							</svg>
-						</div>
-						<h3 class="text-3xl font-bold text-white mb-4">01. Branding</h3>
-						<p class="text-gray-400 leading-relaxed mb-6">
-							Complete brand identity systems including logo design, color palettes, typography, 
-							and comprehensive brand guidelines that ensure consistency across all touchpoints.
-						</p>
-						<ul class="space-y-2 text-sm text-gray-500">
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-								Logo Design & Identity
-							</li>
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-								Brand Strategy
-							</li>
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-								Visual Guidelines
-							</li>
-						</ul>
+			<div class="hero-visual">
+				<div class="visual-grid">
+					<div class="visual-card">
+						<img src="/wedding-stationery-nairobi.jpg" alt="Branding Work 1" onerror="this.src='/api/placeholder/400/400'">
 					</div>
-				</div>
-
-				<!-- Service 2: Printing -->
-				<div class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-3xl border border-gray-700 hover:border-orange-500 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-hidden">
-					<div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-orange-700"></div>
-					<div class="absolute top-0 right-0 w-20 h-20 bg-orange-500/10 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500"></div>
-					
-					<div class="relative z-10">
-						<div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-2xl mb-6 flex items-center justify-center">
-							<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
-							</svg>
-						</div>
-						<h3 class="text-3xl font-bold text-white mb-4">02. Printing</h3>
-						<p class="text-gray-400 leading-relaxed mb-6">
-							Premium printing services with meticulous attention to detail. From business cards 
-							to large-format displays, we deliver exceptional quality every time.
-						</p>
-						<ul class="space-y-2 text-sm text-gray-500">
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-								Business Stationery
-							</li>
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-								Large Format Printing
-							</li>
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-								Promotional Materials
-							</li>
-						</ul>
+					<div class="visual-card">
+						<img src="/corporate-gifts-kenya.jpg" alt="Branding Work 2" onerror="this.src='/api/placeholder/400/400'">
 					</div>
-				</div>
-
-				<!-- Service 3: Strategy -->
-				<div class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-10 rounded-3xl border border-gray-700 hover:border-pink-500 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/20 overflow-hidden">
-					<div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-pink-500 to-pink-700"></div>
-					<div class="absolute top-0 right-0 w-20 h-20 bg-pink-500/10 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500"></div>
-					
-					<div class="relative z-10">
-						<div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-700 rounded-2xl mb-6 flex items-center justify-center">
-							<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-							</svg>
-						</div>
-						<h3 class="text-3xl font-bold text-white mb-4">03. Strategy</h3>
-						<p class="text-gray-400 leading-relaxed mb-6">
-							Strategic brand positioning and market analysis to ensure your brand stands out 
-							in competitive markets and resonates with your target audience.
-						</p>
-						<ul class="space-y-2 text-sm text-gray-500">
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-pink-500 rounded-full"></div>
-								Market Research
-							</li>
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-pink-500 rounded-full"></div>
-								Brand Positioning
-							</li>
-							<li class="flex items-center gap-2">
-								<div class="w-1.5 h-1.5 bg-pink-500 rounded-full"></div>
-								Competitive Analysis
-							</li>
-						</ul>
+					<div class="visual-card">
+						<img src="/api/placeholder/400/400" alt="Branding Work 3">
+					</div>
+					<div class="visual-card">
+						<img src="/api/placeholder/400/400" alt="Branding Work 4">
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Portfolio Section -->
-	<section id="portfolio" class="py-32 bg-white">
-		<div class="max-w-7xl mx-auto px-6">
-			<div class="text-center mb-20">
-				<span class="text-xs font-bold tracking-widest uppercase text-blue-600 mb-4 block">Our Work</span>
-				<h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">Portfolio</h2>
-				<p class="text-xl text-gray-600 max-w-2xl mx-auto">
-					A showcase of brands we've brought to life
-				</p>
+	<section id="services" class="services">
+		<div class="services-container">
+			<div class="section-label">What We Do</div>
+			<h2 class="section-title">Services That Elevate</h2>
+			<div class="services-grid">
+				<div class="service-card">
+					<div class="service-number">01</div>
+					<h3 class="service-title">Brand Identity</h3>
+					<p class="service-description">
+						We architect comprehensive visual identity systems that position your enterprise for sustainable growth and market dominance.
+					</p>
+					<ul class="service-features">
+						<li>Logo Design & Brand Guidelines</li>
+						<li>Corporate Identity Systems</li>
+						<li>Brand Strategy & Positioning</li>
+						<li>Visual Language Development</li>
+					</ul>
+				</div>
+				<div class="service-card">
+					<div class="service-number">02</div>
+					<h3 class="service-title">Premium Printing</h3>
+					<p class="service-description">
+						High-fidelity production with meticulous attention to material selection, ensuring every touchpoint reflects excellence.
+					</p>
+					<ul class="service-features">
+						<li>Business Cards & Stationery</li>
+						<li>Marketing Collateral</li>
+						<li>Packaging & Product Labels</li>
+						<li>Large Format Printing</li>
+					</ul>
+				</div>
+				<div class="service-card">
+					<div class="service-number">03</div>
+					<h3 class="service-title">Strategic Design</h3>
+					<p class="service-description">
+						Expert consultancy for brand positioning in competitive markets, backed by research and strategic thinking.
+					</p>
+					<ul class="service-features">
+						<li>Market Research & Analysis</li>
+						<li>Competitive Positioning</li>
+						<li>Brand Audits & Refresh</li>
+						<li>Digital Brand Extensions</li>
+					</ul>
+				</div>
 			</div>
+		</div>
+	</section>
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-				<!-- Portfolio Item 1 -->
-				<div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square cursor-pointer">
-					<div class="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-800/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
-						<div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-							<h3 class="text-2xl font-bold mb-2">Corporate Identity</h3>
-							<p class="text-blue-100 text-sm mb-4">Full branding package for financial services</p>
-							<span class="text-xs uppercase tracking-wider text-blue-200">View Project →</span>
-						</div>
-					</div>
-					<div class="w-full h-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-						<div class="text-white text-6xl font-black">01</div>
+	<section id="portfolio" class="portfolio">
+		<div class="portfolio-container">
+			<div class="portfolio-header">
+				<div class="section-label">Selected Works</div>
+				<h2 class="section-title">Portfolio Showcase</h2>
+			</div>
+			<div class="portfolio-grid">
+				<div class="portfolio-item">
+					<img src="/wedding-stationery-nairobi.jpg" alt="Corporate Identity Project" onerror="this.src='/api/placeholder/500/625'">
+					<div class="portfolio-overlay">
+						<h3 class="portfolio-title">Executive Branding Suite</h3>
+						<p class="portfolio-category">Corporate Identity</p>
 					</div>
 				</div>
-
-				<!-- Portfolio Item 2 -->
-				<div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square cursor-pointer">
-					<div class="absolute inset-0 bg-gradient-to-br from-orange-600/90 to-orange-800/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
-						<div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-							<h3 class="text-2xl font-bold mb-2">Restaurant Branding</h3>
-							<p class="text-orange-100 text-sm mb-4">Menu design & signage for upscale dining</p>
-							<span class="text-xs uppercase tracking-wider text-orange-200">View Project →</span>
-						</div>
-					</div>
-					<div class="w-full h-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
-						<div class="text-white text-6xl font-black">02</div>
+				<div class="portfolio-item">
+					<img src="/corporate-gifts-kenya.jpg" alt="Wedding Stationery" onerror="this.src='/api/placeholder/500/625'">
+					<div class="portfolio-overlay">
+						<h3 class="portfolio-title">Luxury Wedding Collection</h3>
+						<p class="portfolio-category">Event Branding</p>
 					</div>
 				</div>
-
-				<!-- Portfolio Item 3 -->
-				<div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square cursor-pointer">
-					<div class="absolute inset-0 bg-gradient-to-br from-pink-600/90 to-pink-800/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
-						<div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-							<h3 class="text-2xl font-bold mb-2">Tech Startup</h3>
-							<p class="text-pink-100 text-sm mb-4">Brand identity for innovative tech company</p>
-							<span class="text-xs uppercase tracking-wider text-pink-200">View Project →</span>
-						</div>
-					</div>
-					<div class="w-full h-full bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center">
-						<div class="text-white text-6xl font-black">03</div>
+				<div class="portfolio-item">
+					<img src="/api/placeholder/500/625" alt="Product Packaging">
+					<div class="portfolio-overlay">
+						<h3 class="portfolio-title">Artisan Product Line</h3>
+						<p class="portfolio-category">Packaging Design</p>
 					</div>
 				</div>
-
-				<!-- Portfolio Item 4 -->
-				<div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square cursor-pointer">
-					<div class="absolute inset-0 bg-gradient-to-br from-yellow-600/90 to-yellow-800/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
-						<div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-							<h3 class="text-2xl font-bold mb-2">Event Branding</h3>
-							<p class="text-yellow-100 text-sm mb-4">Complete visual identity for annual conference</p>
-							<span class="text-xs uppercase tracking-wider text-yellow-200">View Project →</span>
-						</div>
-					</div>
-					<div class="w-full h-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-						<div class="text-white text-6xl font-black">04</div>
+				<div class="portfolio-item">
+					<img src="/api/placeholder/500/625" alt="Restaurant Branding">
+					<div class="portfolio-overlay">
+						<h3 class="portfolio-title">Fine Dining Experience</h3>
+						<p class="portfolio-category">Restaurant Branding</p>
 					</div>
 				</div>
-
-				<!-- Portfolio Item 5 -->
-				<div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square cursor-pointer">
-					<div class="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-purple-800/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
-						<div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-							<h3 class="text-2xl font-bold mb-2">Retail Packaging</h3>
-							<p class="text-purple-100 text-sm mb-4">Premium packaging design for beauty brand</p>
-							<span class="text-xs uppercase tracking-wider text-purple-200">View Project →</span>
-						</div>
-					</div>
-					<div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
-						<div class="text-white text-6xl font-black">05</div>
+				<div class="portfolio-item">
+					<img src="/api/placeholder/500/625" alt="Tech Startup Brand">
+					<div class="portfolio-overlay">
+						<h3 class="portfolio-title">Innovation Hub Identity</h3>
+						<p class="portfolio-category">Tech Branding</p>
 					</div>
 				</div>
-
-				<!-- Portfolio Item 6 -->
-				<div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square cursor-pointer">
-					<div class="absolute inset-0 bg-gradient-to-br from-gray-700/90 to-gray-900/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
-						<div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-							<h3 class="text-2xl font-bold mb-2">Real Estate</h3>
-							<p class="text-gray-200 text-sm mb-4">Luxury property branding & marketing materials</p>
-							<span class="text-xs uppercase tracking-wider text-gray-300">View Project →</span>
-						</div>
-					</div>
-					<div class="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-						<div class="text-white text-6xl font-black">06</div>
+				<div class="portfolio-item">
+					<img src="/api/placeholder/500/625" alt="Fashion Brand">
+					<div class="portfolio-overlay">
+						<h3 class="portfolio-title">Boutique Fashion Label</h3>
+						<p class="portfolio-category">Fashion Branding</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- About/Trust Section -->
-	<section id="about" class="py-32 bg-gradient-to-b from-gray-50 to-white">
-		<div class="max-w-7xl mx-auto px-6">
-			<div class="grid lg:grid-cols-2 gap-16 items-center">
-				<div>
-					<span class="text-xs font-bold tracking-widest uppercase text-blue-600 mb-4 block">About Us</span>
-					<h2 class="text-5xl font-black text-gray-900 mb-6 leading-tight">
-						Crafting Brands That Stand Out
-					</h2>
-					<div class="space-y-6 text-lg text-gray-600 leading-relaxed">
-						<p>
-							Since 2020, Bright Bow has been Nairobi's premier destination for businesses seeking 
-							to elevate their brand presence. We combine strategic thinking with creative excellence 
-							to deliver identities that resonate.
-						</p>
-						<p>
-							Our team brings together expertise in brand strategy, visual design, and premium printing 
-							to offer comprehensive solutions that transform businesses into memorable brands.
-						</p>
-						<p>
-							We believe that every business deserves a brand that reflects its unique value proposition. 
-							From startups to established enterprises, we create visual identities that command attention 
-							and build lasting connections with audiences.
-						</p>
-					</div>
-					<div class="mt-10 grid grid-cols-3 gap-8">
-						<div>
-							<div class="text-4xl font-black text-blue-600 mb-2">200+</div>
-							<div class="text-sm text-gray-600">Projects Completed</div>
-						</div>
-						<div>
-							<div class="text-4xl font-black text-orange-500 mb-2">150+</div>
-							<div class="text-sm text-gray-600">Happy Clients</div>
-						</div>
-						<div>
-							<div class="text-4xl font-black text-pink-500 mb-2">5+</div>
-							<div class="text-sm text-gray-600">Years Experience</div>
-						</div>
-					</div>
+	<section id="process" class="process">
+		<div class="process-container">
+			<div class="portfolio-header">
+				<div class="section-label">How We Work</div>
+				<h2 class="section-title">Our Process</h2>
+			</div>
+			<div class="process-steps">
+				<div class="process-step">
+					<div class="step-icon">1</div>
+					<h3 class="step-title">Discovery</h3>
+					<p class="step-description">We immerse ourselves in your business, understanding your vision, values, and market position.</p>
 				</div>
-				<div class="relative">
-					<div class="aspect-square rounded-3xl bg-gradient-to-br from-blue-100 to-orange-50 p-12 flex items-center justify-center">
-						<div class="space-y-6 w-full">
-							<div class="bg-white rounded-2xl p-6 shadow-xl transform rotate-2 hover:rotate-0 transition-transform">
-								<div class="flex items-center gap-4 mb-4">
-									<div class="w-12 h-12 bg-blue-600 rounded-xl"></div>
-									<div class="flex-1">
-										<div class="h-3 bg-gray-200 rounded w-3/4 mb-2"></div>
-										<div class="h-2 bg-gray-100 rounded w-1/2"></div>
-									</div>
-								</div>
-								<div class="space-y-2">
-									<div class="h-2 bg-gray-100 rounded"></div>
-									<div class="h-2 bg-gray-100 rounded w-5/6"></div>
-								</div>
-							</div>
-							<div class="bg-white rounded-2xl p-6 shadow-xl transform -rotate-2 hover:rotate-0 transition-transform">
-								<div class="flex items-center gap-4 mb-4">
-									<div class="w-12 h-12 bg-orange-500 rounded-xl"></div>
-									<div class="flex-1">
-										<div class="h-3 bg-gray-200 rounded w-2/3 mb-2"></div>
-										<div class="h-2 bg-gray-100 rounded w-1/3"></div>
-									</div>
-								</div>
-								<div class="space-y-2">
-									<div class="h-2 bg-gray-100 rounded"></div>
-									<div class="h-2 bg-gray-100 rounded w-4/5"></div>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="process-step">
+					<div class="step-icon">2</div>
+					<h3 class="step-title">Strategy</h3>
+					<p class="step-description">Crafting a comprehensive brand strategy that aligns with your business objectives.</p>
+				</div>
+				<div class="process-step">
+					<div class="step-icon">3</div>
+					<h3 class="step-title">Design</h3>
+					<p class="step-description">Creating distinctive visual identities that resonate with your target audience.</p>
+				</div>
+				<div class="process-step">
+					<div class="step-icon">4</div>
+					<h3 class="step-title">Delivery</h3>
+					<p class="step-description">Flawless execution with premium materials and meticulous attention to detail.</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- CTA Section -->
-	<section class="py-32 bg-gray-900 relative overflow-hidden">
-		<div class="absolute inset-0">
-			<div class="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-600/10 rounded-full blur-3xl"></div>
-			<div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-orange-600/10 rounded-full blur-3xl"></div>
-		</div>
-		
-		<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-			<h2 class="text-5xl md:text-6xl font-black text-white mb-6">
-				Ready to Transform Your Brand?
-			</h2>
-			<p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-				Let's create something extraordinary together. Get in touch and let's discuss how we can 
-				elevate your brand to new heights.
-			</p>
-			<a href="https://wa.me/254748448431" class="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-5 rounded-full text-lg font-bold transition-all hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105">
-				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-					<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-				</svg>
-				Start Your Project
-			</a>
+	<section id="contact" class="contact">
+		<div class="contact-container">
+			<h2 class="contact-title">Ready to Transform Your Brand?</h2>
+			<p class="contact-subtitle">Let's create something extraordinary together.</p>
+			<div class="contact-buttons">
+				<a href="https://wa.me/254..." class="contact-button primary">
+					<span>Start Your Project</span>
+					<span>→</span>
+				</a>
+				<a href="mailto:hello@brightbow.co.ke" class="contact-button secondary">
+					<span>Send an Email</span>
+				</a>
+			</div>
 		</div>
 	</section>
 
-	<!-- Footer -->
-	<footer class="bg-white border-t border-gray-100 py-12">
-		<div class="max-w-7xl mx-auto px-6">
-			<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-				<div class="flex items-center gap-3">
-					<div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg rounded-tr-none"></div>
-					<span class="text-xl font-bold tracking-tight text-gray-900">BRIGHT BOW</span>
-				</div>
-				<div class="text-sm text-gray-600">
-					© 2026 Bright Bow Branding & Printing. All rights reserved.
-				</div>
-				<div class="flex gap-4">
-					<a href="#" class="text-gray-400 hover:text-gray-900 transition-colors">
-						<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-							<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-						</svg>
-					</a>
-					<a href="#" class="text-gray-400 hover:text-gray-900 transition-colors">
-						<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-							<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-						</svg>
-					</a>
-				</div>
+	<footer class="footer">
+		<div class="footer-content">
+			<div class="footer-logo">BRIGHT BOW</div>
+			<div class="footer-links">
+				<a href="#services" class="footer-link">Services</a>
+				<a href="#portfolio" class="footer-link">Portfolio</a>
+				<a href="#process" class="footer-link">Process</a>
+				<a href="#contact" class="footer-link">Contact</a>
 			</div>
+			<div class="footer-copy">© 2026 Bright Bow Branding & Printing. All rights reserved.</div>
 		</div>
 	</footer>
-
-	<style>
-		@keyframes blob {
-			0% { transform: translate(0px, 0px) scale(1); }
-			33% { transform: translate(30px, -50px) scale(1.1); }
-			66% { transform: translate(-20px, 20px) scale(0.9); }
-			100% { transform: translate(0px, 0px) scale(1); }
-		}
-		
-		@keyframes float {
-			0%, 100% { transform: translateY(0px); }
-			50% { transform: translateY(-20px); }
-		}
-		
-		.animate-blob {
-			animation: blob 7s infinite;
-		}
-		
-		.animation-delay-2000 {
-			animation-delay: 2s;
-		}
-		
-		.animation-delay-4000 {
-			animation-delay: 4s;
-		}
-		
-		.animate-float {
-			animation: float 3s ease-in-out infinite;
-		}
-		
-		.animation-delay-1000 {
-			animation-delay: 1s;
-		}
-		
-		.animation-delay-2000 {
-			animation-delay: 2s;
-		}
-		
-		html {
-			scroll-behavior: smooth;
-		}
-	</style>
 </Layout>

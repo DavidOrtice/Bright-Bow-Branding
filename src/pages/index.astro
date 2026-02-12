@@ -66,88 +66,13 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.logo {
-			display: flex;
-			align-items: center;
-			gap: 16px;
+			display: block;
 			text-decoration: none;
-			color: var(--dark);
 		}
 
-		.logo-icon {
-			width: 56px;
-			height: 56px;
-			position: relative;
-			border-radius: 12px;
-			overflow: hidden;
-			flex-shrink: 0;
-			box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-		}
-
-		.color-block {
-			position: absolute;
-			inset: 0;
-		}
-
-		.orange {
-			background: var(--accent-orange);
-			clip-path: polygon(0 0, 100% 0, 100% 55%, 0 55%);
-		}
-
-		.magenta {
-			background: var(--accent-pink);
-			clip-path: polygon(100% 0, 100% 55%, 45% 55%, 45% 0);
-		}
-
-		.blue {
-			background: var(--primary-blue);
-			clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-		}
-
-		.yellow {
-			background: var(--accent-yellow);
-			clip-path: polygon(45% 55%, 100% 55%, 100% 100%, 45% 100%);
-			border-top-left-radius: 30px 30px;
-			transform: translateY(-0.5px);
-		}
-
-		.logo-text-wrapper {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
-
-		.logo-bright {
-			font-size: 15px;
-			font-weight: 700;
-			color: var(--dark);
-			background: rgba(255,255,255,0.85);
-			padding: 4px 12px;
-			border-radius: 999px;
-			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-			backdrop-filter: blur(10px);
-			letter-spacing: 0.5px;
-			margin: 0;
-			line-height: 1;
-			margin-bottom: -6px;
-			position: relative;
-			z-index: 2;
-		}
-
-		.logo-bow {
-			font-size: 20px;
-			font-weight: 700;
-			color: var(--dark);
-			letter-spacing: 0.5px;
-			line-height: 1;
-		}
-
-		.logo-tagline {
-			font-size: 8px;
-			font-weight: 600;
-			letter-spacing: 2px;
-			color: var(--gray);
-			margin-top: 4px;
-			text-transform: uppercase;
+		.logo img {
+			height: 60px;
+			width: auto;
 		}
 
 		.nav-links {
@@ -309,62 +234,13 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.hero-logo-large {
-			display: flex;
-			align-items: center;
-			gap: 32px;
 			animation: fadeInScale 1s ease-out 0.6s both;
 		}
 
-		@keyframes fadeInScale {
-			from {
-				opacity: 0;
-				transform: scale(0.9);
-			}
-			to {
-				opacity: 1;
-				transform: scale(1);
-			}
-		}
-
-		.hero-logo-large .icon {
-			width: 140px;
-			height: 140px;
-			position: relative;
-			border-radius: 28px;
-			overflow: hidden;
-			flex-shrink: 0;
-			box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-		}
-
-		.hero-logo-large .text-area {
-			display: flex;
-			flex-direction: column;
-			gap: 0;
-		}
-
-		.hero-logo-large .bright {
-			font-size: 32px;
-			font-weight: 700;
-			color: var(--dark);
-			line-height: 1;
-			letter-spacing: 3px;
-		}
-
-		.hero-logo-large .bow {
-			font-size: 56px;
-			font-weight: 700;
-			color: var(--dark);
-			line-height: 0.9;
-			letter-spacing: 2px;
-		}
-
-		.hero-logo-large .subtitle {
-			font-size: 12px;
-			font-weight: 600;
-			letter-spacing: 4px;
-			color: #6b7280;
-			text-transform: uppercase;
-			margin-top: 8px;
+		.hero-logo-large img {
+			width: 100%;
+			height: auto;
+			max-width: 700px;
 		}
 
 		.services {
@@ -754,25 +630,8 @@ import Layout from '../layouts/Layout.astro';
 				gap: 3rem;
 			}
 
-			.hero-logo-large {
-				gap: 24px;
-			}
-
-			.hero-logo-large .icon {
-				width: 110px;
-				height: 110px;
-			}
-
-			.hero-logo-large .bright {
-				font-size: 26px;
-			}
-
-			.hero-logo-large .bow {
-				font-size: 44px;
-			}
-
-			.hero-logo-large .subtitle {
-				font-size: 10px;
+			.hero-logo-large img {
+				max-width: 550px;
 			}
 
 			.nav-container {
@@ -804,47 +663,12 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		@media (max-width: 640px) {
-			.hero-logo-large {
-				gap: 16px;
+			.hero-logo-large img {
+				max-width: 400px;
 			}
 
-			.hero-logo-large .icon {
-				width: 90px;
-				height: 90px;
-				border-radius: 20px;
-			}
-
-			.hero-logo-large .bright {
-				font-size: 22px;
-			}
-
-			.hero-logo-large .bow {
-				font-size: 36px;
-			}
-
-			.hero-logo-large .subtitle {
-				font-size: 9px;
-				letter-spacing: 3px;
-			}
-
-			.logo-icon {
-				width: 44px;
-				height: 44px;
-				border-radius: 10px;
-			}
-
-			.logo-bright {
-				font-size: 13px;
-				padding: 3px 10px;
-				margin-bottom: -5px;
-			}
-
-			.logo-bow {
-				font-size: 17px;
-			}
-
-			.logo-tagline {
-				font-size: 7px;
+			.logo img {
+				height: 50px;
 			}
 
 			.nav-container {
@@ -889,17 +713,7 @@ import Layout from '../layouts/Layout.astro';
 	<nav class="nav">
 		<div class="nav-container">
 			<a href="#" class="logo">
-				<div class="logo-icon">
-					<div class="color-block orange"></div>
-					<div class="color-block magenta"></div>
-					<div class="color-block blue"></div>
-					<div class="color-block yellow"></div>
-				</div>
-				<div class="logo-text-wrapper">
-					<div class="logo-bright">BRIGHT</div>
-					<div class="logo-bow">BOW</div>
-					<div class="logo-tagline">Branding & Printing</div>
-				</div>
+				<img src="/bright-bow-logo-small.png" alt="Bright Bow" />
 			</a>
 			<div class="nav-links">
 				<a href="#services" class="nav-link">Services</a>
@@ -929,17 +743,7 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			<div class="hero-visual">
 				<div class="hero-logo-large">
-					<div class="icon">
-						<div class="color-block orange"></div>
-						<div class="color-block magenta"></div>
-						<div class="color-block blue"></div>
-						<div class="color-block yellow"></div>
-					</div>
-					<div class="text-area">
-						<div class="bright">BRIGHT</div>
-						<div class="bow">BOW</div>
-						<div class="subtitle">BRANDING & PRINTING</div>
-					</div>
+					<img src="/bright-bow-logo.png" alt="Bright Bow - Branding & Printing" />
 				</div>
 			</div>
 		</div>

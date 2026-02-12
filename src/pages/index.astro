@@ -4,15 +4,15 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Bright Bow | Premium Branding & Printing">
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
 		
 		:root {
-			--primary-blue: #0047AB;
-			--accent-orange: #FF4500;
-			--accent-pink: #E11D48;
-			--accent-gold: #FFD700;
-			--dark: #0a0a0a;
-			--gray: #6b7280;
+			--primary-blue: #0055a5;
+			--accent-orange: #f5821f;
+			--accent-pink: #d81b60;
+			--accent-yellow: #ffcd00;
+			--dark: #1f2732;
+			--gray: #4a5568;
 			--light-gray: #f3f4f6;
 		}
 
@@ -23,7 +23,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		body {
-			font-family: 'Archivo', sans-serif;
+			font-family: 'Montserrat', sans-serif;
 			background: #ffffff;
 			color: var(--dark);
 			overflow-x: hidden;
@@ -68,67 +68,48 @@ import Layout from '../layouts/Layout.astro';
 		.logo {
 			display: flex;
 			align-items: center;
-			gap: 0.75rem;
+			gap: 12px;
 			text-decoration: none;
 			color: var(--dark);
 		}
 
-		.logo-mark {
+		.logo-icon {
 			width: 50px;
 			height: 50px;
-			position: relative;
-		}
-
-		.logo-mark .block {
-			position: absolute;
-			width: 55%;
-			height: 55%;
-			opacity: 0.92;
-			box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-		}
-
-		.logo-mark .blue {
-			background: #0066cc;
-			top: 0;
-			left: 0;
-		}
-
-		.logo-mark .orange {
-			background: #ff6600;
-			top: 0;
-			right: 0;
-		}
-
-		.logo-mark .yellow {
-			background: #ffcc00;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
+			flex-shrink: 0;
 		}
 
 		.logo-text-wrapper {
 			display: flex;
 			flex-direction: column;
+			justify-content: center;
 		}
 
-		.logo-text {
-			font-weight: 800;
-			font-size: 0.9rem;
-			letter-spacing: 1px;
-			text-transform: uppercase;
-			display: flex;
-			gap: 4px;
-			line-height: 1;
+		.logo-bright {
+			font-size: 16px;
+			font-weight: 700;
 			color: var(--dark);
+			letter-spacing: 0.5px;
+			margin: 0;
+			line-height: 1;
+		}
+
+		.logo-bow {
+			font-size: 18px;
+			font-weight: 700;
+			color: var(--dark);
+			letter-spacing: 0.5px;
+			margin-top: -4px;
+			line-height: 1;
 		}
 
 		.logo-tagline {
-			font-size: 0.5rem;
+			font-size: 9px;
+			font-weight: 500;
+			letter-spacing: 2px;
 			color: var(--gray);
-			letter-spacing: 1.5px;
-			text-align: left;
-			margin-top: 2px;
-			font-weight: 600;
+			margin-top: 4px;
+			text-transform: uppercase;
 		}
 
 		.nav-links {
@@ -267,7 +248,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.shape-1 {
-			background: var(--accent-gold);
+			background: var(--accent-yellow);
 			border-radius: 50%;
 		}
 
@@ -294,9 +275,9 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.hero-logo-large {
-			position: relative;
-			width: 380px;
-			height: 380px;
+			display: flex;
+			align-items: center;
+			gap: 32px;
 			animation: fadeInScale 1s ease-out 0.6s both;
 		}
 
@@ -311,81 +292,43 @@ import Layout from '../layouts/Layout.astro';
 			}
 		}
 
-		.hero-logo-large .color-blocks {
-			position: absolute;
-			inset: 0;
+		.hero-logo-large .icon {
+			width: 170px;
+			height: 170px;
+			flex-shrink: 0;
 		}
 
-		.hero-logo-large .block {
-			position: absolute;
-			width: 58%;
-			height: 58%;
-			opacity: 0.92;
-			box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-		}
-
-		.hero-logo-large .blue {
-			background: #0066cc;
-			top: 0;
-			left: 0;
-		}
-
-		.hero-logo-large .orange {
-			background: #ff6600;
-			top: 0;
-			right: 0;
-		}
-
-		.hero-logo-large .yellow {
-			background: #ffcc00;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-
-		.hero-logo-large .text-layer {
-			position: absolute;
-			inset: 0;
+		.hero-logo-large .text-area {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: center;
-			color: white;
-			text-align: center;
-			font-weight: bold;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 		}
 
 		.hero-logo-large .bright {
-			font-size: 82px;
-			line-height: 0.85;
+			font-size: 44px;
+			font-weight: 700;
+			color: var(--dark);
+			letter-spacing: 1px;
 			margin: 0;
-			font-weight: 900;
-		}
-
-		.hero-logo-large .bow-container {
-			position: relative;
-			margin: 8px 0 20px;
+			line-height: 1;
 		}
 
 		.hero-logo-large .bow {
-			font-size: 108px;
+			font-size: 52px;
+			font-weight: 700;
+			color: var(--dark);
+			letter-spacing: 1px;
+			margin-top: -10px;
 			line-height: 1;
-			transform: rotate(-90deg);
-			display: inline-block;
-			margin: 0;
-			font-weight: 900;
-			white-space: nowrap;
 		}
 
 		.hero-logo-large .subtitle {
-			font-size: 18px;
-			letter-spacing: 1.5px;
-			font-weight: bold;
-			margin: 0;
-			opacity: 0.95;
+			font-size: 13px;
+			font-weight: 500;
+			letter-spacing: 3.5px;
+			color: var(--gray);
+			margin-top: 8px;
+			text-transform: uppercase;
 		}
 
 		.visual-grid {
@@ -809,20 +752,24 @@ import Layout from '../layouts/Layout.astro';
 			}
 
 			.hero-logo-large {
-				width: 300px;
-				height: 300px;
+				gap: 24px;
+			}
+
+			.hero-logo-large .icon {
+				width: 130px;
+				height: 130px;
 			}
 
 			.hero-logo-large .bright {
-				font-size: 65px;
+				font-size: 36px;
 			}
 
 			.hero-logo-large .bow {
-				font-size: 85px;
+				font-size: 42px;
 			}
 
 			.hero-logo-large .subtitle {
-				font-size: 14px;
+				font-size: 11px;
 			}
 
 			.nav-container {
@@ -855,20 +802,43 @@ import Layout from '../layouts/Layout.astro';
 
 		@media (max-width: 640px) {
 			.hero-logo-large {
-				width: 250px;
-				height: 250px;
+				gap: 16px;
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.hero-logo-large .icon {
+				width: 120px;
+				height: 120px;
 			}
 
 			.hero-logo-large .bright {
-				font-size: 50px;
+				font-size: 32px;
 			}
 
 			.hero-logo-large .bow {
-				font-size: 65px;
+				font-size: 38px;
 			}
 
 			.hero-logo-large .subtitle {
-				font-size: 12px;
+				font-size: 10px;
+			}
+
+			.logo-icon {
+				width: 40px;
+				height: 40px;
+			}
+
+			.logo-bright {
+				font-size: 14px;
+			}
+
+			.logo-bow {
+				font-size: 16px;
+			}
+
+			.logo-tagline {
+				font-size: 8px;
 			}
 
 			.nav-container {
@@ -927,17 +897,18 @@ import Layout from '../layouts/Layout.astro';
 	<nav class="nav">
 		<div class="nav-container">
 			<a href="#" class="logo">
-				<div class="logo-mark">
-					<div class="block blue"></div>
-					<div class="block orange"></div>
-					<div class="block yellow"></div>
-				</div>
+				<svg class="logo-icon" viewBox="0 0 200 200">
+					<rect width="200" height="200" rx="40" fill="#ffffff"/>
+					<path d="M0 0 H200 V110 H0 Z" fill="#f5821f"/>
+					<polygon points="200,0 200,110 90,110" fill="#d81b60"/>
+					<path d="M0 110 H200 V200 H0 Z" fill="#0055a5"/>
+					<path d="M90 200 Q 200 160, 200 110 L 200 110 Q 160 140, 90 200 Z" fill="#ffcd00"/>
+					<path d="M80 90 Q 100 50, 120 90 Q 140 130, 120 170 Q 100 190, 80 170 Q 60 130, 80 90 Z" fill="rgba(255,255,255,0.08)"/>
+				</svg>
 				<div class="logo-text-wrapper">
-					<div class="logo-text">
-						<span>BRIGHT</span>
-						<span>BOW</span>
-					</div>
-					<span class="logo-tagline">BRANDING & PRINTING</span>
+					<div class="logo-bright">BRIGHT</div>
+					<div class="logo-bow">BOW</div>
+					<div class="logo-tagline">Branding & Printing</div>
 				</div>
 			</a>
 			<div class="nav-links">
@@ -968,17 +939,18 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			<div class="hero-visual">
 				<div class="hero-logo-large">
-					<div class="color-blocks">
-						<div class="block blue"></div>
-						<div class="block orange"></div>
-						<div class="block yellow"></div>
-					</div>
-					<div class="text-layer">
-						<h1 class="bright">BRIGHT</h1>
-						<div class="bow-container">
-							<div class="bow">BOW</div>
-						</div>
-						<p class="subtitle">BRANDING & PRINTING</p>
+					<svg class="icon" viewBox="0 0 200 200">
+						<rect width="200" height="200" rx="40" fill="#ffffff"/>
+						<path d="M0 0 H200 V110 H0 Z" fill="#f5821f"/>
+						<polygon points="200,0 200,110 90,110" fill="#d81b60"/>
+						<path d="M0 110 H200 V200 H0 Z" fill="#0055a5"/>
+						<path d="M90 200 Q 200 160, 200 110 L 200 110 Q 160 140, 90 200 Z" fill="#ffcd00"/>
+						<path d="M80 90 Q 100 50, 120 90 Q 140 130, 120 170 Q 100 190, 80 170 Q 60 130, 80 90 Z" fill="rgba(255,255,255,0.08)"/>
+					</svg>
+					<div class="text-area">
+						<div class="bright">BRIGHT</div>
+						<div class="bow">BOW</div>
+						<div class="subtitle">Branding & Printing</div>
 					</div>
 				</div>
 			</div>

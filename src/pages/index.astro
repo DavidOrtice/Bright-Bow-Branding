@@ -67,17 +67,19 @@ import Layout from '../layouts/Layout.astro';
 
 		.logo {
 			display: flex;
-			align-items: center;
-			gap: 0.75rem;
+			align-items: flex-start;
+			gap: 0;
 			text-decoration: none;
 			color: var(--dark);
+			flex-direction: column;
 		}
 
 		.logo-mark {
-			width: 42px;
-			height: 42px;
+			width: 60px;
+			height: 50px;
 			position: relative;
 			display: flex;
+			margin-bottom: 4px;
 		}
 
 		.logo-mark::before {
@@ -88,7 +90,7 @@ import Layout from '../layouts/Layout.astro';
 			width: 50%;
 			height: 100%;
 			background: var(--primary-blue);
-			border-radius: 6px 0 0 6px;
+			border-radius: 8px 0 0 8px;
 		}
 
 		.logo-mark::after {
@@ -99,31 +101,32 @@ import Layout from '../layouts/Layout.astro';
 			width: 50%;
 			height: 100%;
 			background: var(--accent-orange);
-			border-radius: 0 6px 6px 0;
+			border-radius: 0 8px 8px 0;
 		}
 
 		.logo-text {
 			font-weight: 700;
-			font-size: 0.65rem;
+			font-size: 0.75rem;
 			letter-spacing: 2px;
 			text-transform: uppercase;
 			display: flex;
-			flex-direction: column;
-			line-height: 1.1;
+			gap: 8px;
+			line-height: 1;
 		}
 
 		.logo-text .bow {
-			color: var(--primary-blue);
+			color: var(--gray);
 		}
 
 		.logo-text .bright {
-			color: var(--accent-orange);
+			color: var(--gray);
 		}
 
 		.logo-tagline {
-			font-size: 0.5rem;
+			font-size: 0.45rem;
 			color: var(--gray);
-			letter-spacing: 1px;
+			letter-spacing: 1.5px;
+			text-align: center;
 			margin-top: 2px;
 		}
 
@@ -747,8 +750,8 @@ import Layout from '../layouts/Layout.astro';
 				<div class="logo-text">
 					<span class="bow">BOW</span>
 					<span class="bright">BRIGHT</span>
-					<span class="logo-tagline">BRANDING & PRINTING</span>
 				</div>
+				<span class="logo-tagline">BRANDING & PRINTING</span>
 			</a>
 			<div class="nav-links">
 				<a href="#services" class="nav-link">Services</a>

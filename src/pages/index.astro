@@ -74,30 +74,57 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.logo-mark {
-			width: 36px;
-			height: 36px;
-			background: var(--primary-blue);
-			border-radius: 8px 0 8px 8px;
+			width: 42px;
+			height: 42px;
 			position: relative;
-			overflow: hidden;
+			display: flex;
+		}
+
+		.logo-mark::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 50%;
+			height: 100%;
+			background: var(--primary-blue);
+			border-radius: 6px 0 0 6px;
 		}
 
 		.logo-mark::after {
 			content: '';
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 12px;
-			height: 12px;
-			background: white;
-			border-radius: 50%;
+			right: 0;
+			top: 0;
+			width: 50%;
+			height: 100%;
+			background: var(--accent-orange);
+			border-radius: 0 6px 6px 0;
 		}
 
 		.logo-text {
-			font-weight: 900;
-			font-size: 1.5rem;
-			letter-spacing: -0.5px;
+			font-weight: 700;
+			font-size: 0.65rem;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			display: flex;
+			flex-direction: column;
+			line-height: 1.1;
+		}
+
+		.logo-text .bow {
+			color: var(--primary-blue);
+		}
+
+		.logo-text .bright {
+			color: var(--accent-orange);
+		}
+
+		.logo-tagline {
+			font-size: 0.5rem;
+			color: var(--gray);
+			letter-spacing: 1px;
+			margin-top: 2px;
 		}
 
 		.nav-links {
@@ -717,7 +744,11 @@ import Layout from '../layouts/Layout.astro';
 		<div class="nav-container">
 			<a href="#" class="logo">
 				<div class="logo-mark"></div>
-				<span class="logo-text">BRIGHT BOW</span>
+				<div class="logo-text">
+					<span class="bow">BOW</span>
+					<span class="bright">BRIGHT</span>
+					<span class="logo-tagline">BRANDING & PRINTING</span>
+				</div>
 			</a>
 			<div class="nav-links">
 				<a href="#services" class="nav-link">Services</a>
@@ -820,31 +851,31 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			<div class="portfolio-grid">
 				<div class="portfolio-item">
-					<img src="/wedding-stationery-nairobi.jpg" alt="Corporate Identity Project" onerror="this.src='/api/placeholder/500/625'">
+					<img src="/Bespoke Vow Books Kenya.jpg" alt="Bespoke Vow Books Kenya" onerror="this.src='/api/placeholder/500/625'">
 					<div class="portfolio-overlay">
-						<h3 class="portfolio-title">Executive Branding Suite</h3>
-						<p class="portfolio-category">Corporate Identity</p>
+						<h3 class="portfolio-title">Bespoke Vow Books</h3>
+						<p class="portfolio-category">Wedding Stationery</p>
 					</div>
 				</div>
 				<div class="portfolio-item">
-					<img src="/corporate-gifts-kenya.jpg" alt="Wedding Stationery" onerror="this.src='/api/placeholder/500/625'">
+					<img src="/Custom Wax Seal Design Kenya.jpg" alt="Custom Wax Seal Design Kenya" onerror="this.src='/api/placeholder/500/625'">
 					<div class="portfolio-overlay">
-						<h3 class="portfolio-title">Luxury Wedding Collection</h3>
-						<p class="portfolio-category">Event Branding</p>
+						<h3 class="portfolio-title">Custom Wax Seal Design</h3>
+						<p class="portfolio-category">Luxury Stationery</p>
 					</div>
 				</div>
 				<div class="portfolio-item">
-					<img src="/api/placeholder/500/625" alt="Product Packaging">
+					<img src="/Executive Corporate Gifting Nairobi.jpg" alt="Executive Corporate Gifting Nairobi" onerror="this.src='/api/placeholder/500/625'">
 					<div class="portfolio-overlay">
-						<h3 class="portfolio-title">Artisan Product Line</h3>
-						<p class="portfolio-category">Packaging Design</p>
+						<h3 class="portfolio-title">Executive Corporate Gifting</h3>
+						<p class="portfolio-category">Corporate Gifts</p>
 					</div>
 				</div>
 				<div class="portfolio-item">
-					<img src="/api/placeholder/500/625" alt="Restaurant Branding">
+					<img src="/Luxury Wedding Invitations Nairobi.jpg" alt="Luxury Wedding Invitations Nairobi" onerror="this.src='/api/placeholder/500/625'">
 					<div class="portfolio-overlay">
-						<h3 class="portfolio-title">Fine Dining Experience</h3>
-						<p class="portfolio-category">Restaurant Branding</p>
+						<h3 class="portfolio-title">Luxury Wedding Invitations</h3>
+						<p class="portfolio-category">Wedding Stationery</p>
 					</div>
 				</div>
 				<div class="portfolio-item">

@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
 		:root {
 			--primary-blue: #0055a5;
 			--accent-orange: #f5821f;
-			--accent-pink: #d81b60;
+			--accent-pink: #c2185b;
 			--accent-yellow: #ffcd00;
 			--dark: #1f2732;
 			--gray: #4a5568;
@@ -68,15 +68,46 @@ import Layout from '../layouts/Layout.astro';
 		.logo {
 			display: flex;
 			align-items: center;
-			gap: 12px;
+			gap: 16px;
 			text-decoration: none;
 			color: var(--dark);
 		}
 
 		.logo-icon {
-			width: 50px;
-			height: 50px;
+			width: 56px;
+			height: 56px;
+			position: relative;
+			border-radius: 12px;
+			overflow: hidden;
 			flex-shrink: 0;
+			box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+		}
+
+		.color-block {
+			position: absolute;
+			inset: 0;
+		}
+
+		.orange {
+			background: var(--accent-orange);
+			clip-path: polygon(0 0, 100% 0, 100% 55%, 0 55%);
+		}
+
+		.magenta {
+			background: var(--accent-pink);
+			clip-path: polygon(100% 0, 100% 55%, 45% 55%, 45% 0);
+		}
+
+		.blue {
+			background: var(--primary-blue);
+			clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+		}
+
+		.yellow {
+			background: var(--accent-yellow);
+			clip-path: polygon(45% 55%, 100% 55%, 100% 100%, 45% 100%);
+			border-top-left-radius: 30px 30px;
+			transform: translateY(-0.5px);
 		}
 
 		.logo-text-wrapper {
@@ -86,26 +117,33 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.logo-bright {
-			font-size: 16px;
+			font-size: 15px;
 			font-weight: 700;
 			color: var(--dark);
+			background: rgba(255,255,255,0.85);
+			padding: 4px 12px;
+			border-radius: 999px;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+			backdrop-filter: blur(10px);
 			letter-spacing: 0.5px;
 			margin: 0;
 			line-height: 1;
+			margin-bottom: -6px;
+			position: relative;
+			z-index: 2;
 		}
 
 		.logo-bow {
-			font-size: 18px;
+			font-size: 20px;
 			font-weight: 700;
 			color: var(--dark);
 			letter-spacing: 0.5px;
-			margin-top: -4px;
 			line-height: 1;
 		}
 
 		.logo-tagline {
-			font-size: 9px;
-			font-weight: 500;
+			font-size: 8px;
+			font-weight: 600;
 			letter-spacing: 2px;
 			color: var(--gray);
 			margin-top: 4px;
@@ -264,20 +302,16 @@ import Layout from '../layouts/Layout.astro';
 
 		.hero-visual {
 			position: relative;
-			animation: fadeInUp 0.8s ease-out 0.6s both;
-		}
-
-		.hero-visual {
-			position: relative;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			animation: fadeInUp 0.8s ease-out 0.6s both;
 		}
 
 		.hero-logo-large {
 			display: flex;
 			align-items: center;
-			gap: 32px;
+			gap: 40px;
 			animation: fadeInScale 1s ease-out 0.6s both;
 		}
 
@@ -293,75 +327,51 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.hero-logo-large .icon {
-			width: 170px;
-			height: 170px;
+			width: 180px;
+			height: 180px;
+			position: relative;
+			border-radius: 36px;
+			overflow: hidden;
 			flex-shrink: 0;
+			box-shadow: 0 25px 50px rgba(0,0,0,0.18);
 		}
 
 		.hero-logo-large .text-area {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
 		}
 
 		.hero-logo-large .bright {
-			font-size: 44px;
-			font-weight: 700;
-			color: var(--dark);
-			letter-spacing: 1px;
-			margin: 0;
-			line-height: 1;
-		}
-
-		.hero-logo-large .bow {
 			font-size: 52px;
 			font-weight: 700;
 			color: var(--dark);
-			letter-spacing: 1px;
-			margin-top: -10px;
+			background: rgba(255,255,255,0.85);
+			padding: 10px 30px;
+			border-radius: 999px;
+			box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+			backdrop-filter: blur(10px);
+			position: relative;
+			z-index: 2;
 			line-height: 1;
+			margin-bottom: -20px;
+			letter-spacing: 1px;
+		}
+
+		.hero-logo-large .bow {
+			font-size: 72px;
+			font-weight: 700;
+			color: var(--dark);
+			line-height: 0.9;
+			letter-spacing: 2px;
 		}
 
 		.hero-logo-large .subtitle {
-			font-size: 13px;
-			font-weight: 500;
-			letter-spacing: 3.5px;
-			color: var(--gray);
-			margin-top: 8px;
+			font-size: 15px;
+			font-weight: 600;
+			letter-spacing: 4px;
+			margin-top: 16px;
+			color: #1f2937;
 			text-transform: uppercase;
-		}
-
-		.visual-grid {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1.5rem;
-		}
-
-		.visual-card {
-			aspect-ratio: 1;
-			background: var(--light-gray);
-			border-radius: 24px;
-			overflow: hidden;
-			position: relative;
-			transition: transform 0.4s ease;
-		}
-
-		.visual-card:hover {
-			transform: translateY(-8px);
-		}
-
-		.visual-card::before {
-			content: '';
-			position: absolute;
-			inset: 0;
-			background: linear-gradient(135deg, rgba(0, 71, 171, 0.1), transparent);
-			z-index: 1;
-		}
-
-		.visual-card img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
 		}
 
 		.services {
@@ -564,7 +574,7 @@ import Layout from '../layouts/Layout.astro';
 			font-weight: 600;
 			letter-spacing: 2px;
 			text-transform: uppercase;
-			color: var(--accent-gold);
+			color: var(--accent-yellow);
 		}
 
 		.process {
@@ -616,7 +626,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.process-step:nth-child(4) .step-icon {
-			background: linear-gradient(135deg, var(--accent-gold), #ffd700);
+			background: linear-gradient(135deg, var(--accent-yellow), #ffd700);
 			color: var(--dark);
 		}
 
@@ -752,24 +762,26 @@ import Layout from '../layouts/Layout.astro';
 			}
 
 			.hero-logo-large {
-				gap: 24px;
+				gap: 32px;
 			}
 
 			.hero-logo-large .icon {
-				width: 130px;
-				height: 130px;
+				width: 140px;
+				height: 140px;
 			}
 
 			.hero-logo-large .bright {
-				font-size: 36px;
+				font-size: 40px;
+				padding: 8px 24px;
+				margin-bottom: -16px;
 			}
 
 			.hero-logo-large .bow {
-				font-size: 42px;
+				font-size: 56px;
 			}
 
 			.hero-logo-large .subtitle {
-				font-size: 11px;
+				font-size: 13px;
 			}
 
 			.nav-container {
@@ -802,61 +814,53 @@ import Layout from '../layouts/Layout.astro';
 
 		@media (max-width: 640px) {
 			.hero-logo-large {
-				gap: 16px;
 				flex-direction: column;
 				text-align: center;
+				gap: 24px;
 			}
 
 			.hero-logo-large .icon {
 				width: 120px;
 				height: 120px;
+				border-radius: 24px;
 			}
 
 			.hero-logo-large .bright {
 				font-size: 32px;
+				padding: 6px 20px;
+				margin-bottom: -12px;
 			}
 
 			.hero-logo-large .bow {
-				font-size: 38px;
+				font-size: 44px;
 			}
 
 			.hero-logo-large .subtitle {
-				font-size: 10px;
+				font-size: 11px;
 			}
 
 			.logo-icon {
-				width: 40px;
-				height: 40px;
+				width: 44px;
+				height: 44px;
+				border-radius: 10px;
 			}
 
 			.logo-bright {
-				font-size: 14px;
+				font-size: 13px;
+				padding: 3px 10px;
+				margin-bottom: -5px;
 			}
 
 			.logo-bow {
-				font-size: 16px;
+				font-size: 17px;
 			}
 
 			.logo-tagline {
-				font-size: 8px;
+				font-size: 7px;
 			}
 
 			.nav-container {
 				padding: 1rem;
-			}
-
-			.logo-mark {
-				width: 50px;
-				height: 40px;
-			}
-
-			.logo-text {
-				font-size: 0.65rem;
-				gap: 6px;
-			}
-
-			.logo-tagline {
-				font-size: 0.4rem;
 			}
 
 			.nav-links {
@@ -897,25 +901,12 @@ import Layout from '../layouts/Layout.astro';
 	<nav class="nav">
 		<div class="nav-container">
 			<a href="#" class="logo">
-				<svg class="logo-icon" viewBox="0 0 200 200">
-					<!-- Orange top-left -->
-					<path d="M0 0 H100 V100 H0 Z" fill="#f5821f"/>
-					<!-- Pink/Magenta top-right -->
-					<path d="M100 0 H200 V100 H100 Z" fill="#d81b60"/>
-					<!-- Blue bottom-left with bow curve -->
-					<path d="M0 100 H100 V200 H0 Z" fill="#0055a5"/>
-					<!-- Yellow bottom-right -->
-					<path d="M100 100 H200 V200 H100 Z" fill="#ffcd00"/>
-					<!-- Blue bow curve overlay -->
-					<path d="
-						M100 100
-						Q 40 140, 40 200
-						L 0 200
-						L 0 100
-						Q 60 120, 100 100
-						Z
-					" fill="#0055a5"/>
-				</svg>
+				<div class="logo-icon">
+					<div class="color-block orange"></div>
+					<div class="color-block magenta"></div>
+					<div class="color-block blue"></div>
+					<div class="color-block yellow"></div>
+				</div>
 				<div class="logo-text-wrapper">
 					<div class="logo-bright">BRIGHT</div>
 					<div class="logo-bow">BOW</div>
@@ -950,29 +941,16 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			<div class="hero-visual">
 				<div class="hero-logo-large">
-					<svg class="icon" viewBox="0 0 200 200">
-						<!-- Orange top-left -->
-						<path d="M0 0 H100 V100 H0 Z" fill="#f5821f"/>
-						<!-- Pink/Magenta top-right -->
-						<path d="M100 0 H200 V100 H100 Z" fill="#d81b60"/>
-						<!-- Blue bottom-left with bow curve -->
-						<path d="M0 100 H100 V200 H0 Z" fill="#0055a5"/>
-						<!-- Yellow bottom-right -->
-						<path d="M100 100 H200 V200 H100 Z" fill="#ffcd00"/>
-						<!-- Blue bow curve overlay - creates the distinctive bow shape -->
-						<path d="
-							M100 100
-							Q 40 140, 40 200
-							L 0 200
-							L 0 100
-							Q 60 120, 100 100
-							Z
-						" fill="#0055a5"/>
-					</svg>
+					<div class="icon">
+						<div class="color-block orange"></div>
+						<div class="color-block magenta"></div>
+						<div class="color-block blue"></div>
+						<div class="color-block yellow"></div>
+					</div>
 					<div class="text-area">
 						<div class="bright">BRIGHT</div>
 						<div class="bow">BOW</div>
-						<div class="subtitle">Branding & Printing</div>
+						<div class="subtitle">BRANDING & PRINTING</div>
 					</div>
 				</div>
 			</div>

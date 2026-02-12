@@ -310,9 +310,8 @@ import Layout from '../layouts/Layout.astro';
 
 		.hero-logo-large {
 			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 20px;
+			align-items: center;
+			gap: 32px;
 			animation: fadeInScale 1s ease-out 0.6s both;
 		}
 
@@ -328,50 +327,44 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		.hero-logo-large .icon {
-			width: 180px;
-			height: 180px;
+			width: 140px;
+			height: 140px;
 			position: relative;
-			border-radius: 36px;
+			border-radius: 28px;
 			overflow: hidden;
 			flex-shrink: 0;
-			box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+			box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 		}
 
 		.hero-logo-large .text-area {
 			display: flex;
-			align-items: center;
+			flex-direction: column;
 			gap: 0;
-			background: rgba(255, 255, 255, 0.9);
-			padding: 20px 50px;
-			border-radius: 999px;
-			box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-			backdrop-filter: blur(20px);
 		}
 
 		.hero-logo-large .bright {
-			font-size: 36px;
+			font-size: 32px;
 			font-weight: 700;
 			color: var(--dark);
 			line-height: 1;
-			letter-spacing: 2px;
-			margin-right: 20px;
+			letter-spacing: 3px;
 		}
 
 		.hero-logo-large .bow {
-			font-size: 72px;
+			font-size: 56px;
 			font-weight: 700;
 			color: var(--dark);
-			line-height: 1;
+			line-height: 0.9;
 			letter-spacing: 2px;
 		}
 
 		.hero-logo-large .subtitle {
-			font-size: 15px;
+			font-size: 12px;
 			font-weight: 600;
-			letter-spacing: 5px;
-			color: #1f2937;
+			letter-spacing: 4px;
+			color: #6b7280;
 			text-transform: uppercase;
-			margin-left: 8px;
+			margin-top: 8px;
 		}
 
 		.services {
@@ -762,29 +755,24 @@ import Layout from '../layouts/Layout.astro';
 			}
 
 			.hero-logo-large {
-				gap: 16px;
+				gap: 24px;
 			}
 
 			.hero-logo-large .icon {
-				width: 140px;
-				height: 140px;
-			}
-
-			.hero-logo-large .text-area {
-				padding: 16px 40px;
+				width: 110px;
+				height: 110px;
 			}
 
 			.hero-logo-large .bright {
-				font-size: 28px;
-				margin-right: 16px;
+				font-size: 26px;
 			}
 
 			.hero-logo-large .bow {
-				font-size: 56px;
+				font-size: 44px;
 			}
 
 			.hero-logo-large .subtitle {
-				font-size: 13px;
+				font-size: 10px;
 			}
 
 			.nav-container {
@@ -817,30 +805,25 @@ import Layout from '../layouts/Layout.astro';
 
 		@media (max-width: 640px) {
 			.hero-logo-large {
-				gap: 12px;
+				gap: 16px;
 			}
 
 			.hero-logo-large .icon {
-				width: 120px;
-				height: 120px;
-				border-radius: 24px;
-			}
-
-			.hero-logo-large .text-area {
-				padding: 12px 30px;
+				width: 90px;
+				height: 90px;
+				border-radius: 20px;
 			}
 
 			.hero-logo-large .bright {
 				font-size: 22px;
-				margin-right: 12px;
 			}
 
 			.hero-logo-large .bow {
-				font-size: 44px;
+				font-size: 36px;
 			}
 
 			.hero-logo-large .subtitle {
-				font-size: 11px;
+				font-size: 9px;
 				letter-spacing: 3px;
 			}
 
@@ -955,8 +938,8 @@ import Layout from '../layouts/Layout.astro';
 					<div class="text-area">
 						<div class="bright">BRIGHT</div>
 						<div class="bow">BOW</div>
+						<div class="subtitle">BRANDING & PRINTING</div>
 					</div>
-					<div class="subtitle">BRANDING & PRINTING</div>
 				</div>
 			</div>
 		</div>
